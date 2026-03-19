@@ -14,470 +14,228 @@
   --border:#DDD5F5;--border2:#C4A8F0;
   --text:#1A0A2E;--muted:#7C6A9A;--faint:#9A8AB0;
   --accent:#7C3AED;--accent2:#A855F7;
-  --accent-g:rgba(124,58,237,0.09);--accent-g2:rgba(124,58,237,0.04);
+  --accent-g:rgba(124,58,237,0.09);
   --white:#FFFFFF;--radius:7px;--radius-lg:14px;
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;overflow-x:hidden}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  height:62px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 2.5rem;
-  background:rgba(250,247,255,0.88);backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(250,247,255,0.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo-word{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--text);letter-spacing:-.03em}
+.nav-logo-word{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--text);letter-spacing:-.03em}
 .nav-links{display:flex;align-items:center;gap:2rem}
 .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
 .nav-links a:hover{color:var(--text)}
-.nav-cta{
-  background:var(--accent);color:#fff;
-  font-family:'Syne',sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  padding:9px 20px;border-radius:var(--radius);
-  text-decoration:none;transition:background .2s;
-  white-space:nowrap;
-}
+.nav-cta{background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:9px 20px;border-radius:var(--radius);text-decoration:none;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
 .nav-cta:hover{background:#6D28D9}
 
-/* ── HERO ── */
-#home{
-  min-height:100vh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;padding:8rem 1.5rem 5rem;
-  position:relative;overflow:hidden;
-}
-.hero-bg-arc{
-  position:absolute;inset:0;pointer-events:none;z-index:0;
-  display:flex;align-items:center;justify-content:center;
-}
-.hero-content{position:relative;z-index:1;max-width:720px}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
-  background:var(--surface);border:1px solid var(--border2);
-  padding:6px 16px;border-radius:999px;margin-bottom:1.75rem;
-}
+/* HERO */
+#home{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 1.5rem 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0;display:flex;align-items:center;justify-content:center}
+.hero-content{position:relative;z-index:1;max-width:700px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);background:var(--surface);border:1px solid var(--border2);padding:6px 16px;border-radius:999px;margin-bottom:1.75rem}
 .hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
-.hero-h1{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:clamp(2.6rem,6vw,4.2rem);
-  line-height:1.08;letter-spacing:-.03em;
-  color:var(--text);margin-bottom:1.25rem;
-}
-.hero-h1 em{font-style:normal;color:var(--accent)}
-.hero-sub{
-  font-size:clamp(15px,2vw,18px);color:var(--muted);
-  font-weight:300;line-height:1.7;max-width:520px;
-  margin:0 auto 2.5rem;
-}
+h1.hero-h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,3.9rem);line-height:1.08;letter-spacing:-.03em;color:var(--text);margin-bottom:1.25rem}
+h1.hero-h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:clamp(14px,2vw,16px);color:var(--muted);font-weight:300;line-height:1.8;max-width:480px;margin:0 auto 2.5rem}
 .hero-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--accent);color:#fff;
-  font-family:'Syne',sans-serif;font-size:13px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  padding:13px 28px;border-radius:var(--radius);
-  text-decoration:none;border:none;cursor:pointer;
-  transition:background .2s,transform .15s;
-}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 28px;border-radius:var(--radius);text-decoration:none;border:none;cursor:pointer;transition:all .2s}
 .btn-primary:hover{background:#6D28D9;transform:translateY(-1px)}
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:8px;
-  background:transparent;color:var(--muted);
-  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;
-  padding:13px 24px;border-radius:var(--radius);
-  border:1px solid var(--border);text-decoration:none;cursor:pointer;
-  transition:all .2s;
-}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;padding:13px 24px;border-radius:var(--radius);border:1px solid var(--border);text-decoration:none;cursor:pointer;transition:all .2s}
 .btn-ghost:hover{border-color:var(--border2);color:var(--text)}
-.hero-social-proof{
-  margin-top:3rem;display:flex;align-items:center;justify-content:center;
-  gap:8px;font-size:13px;color:var(--faint);font-weight:300;
-}
-.proof-avatars{display:flex}
-.proof-avatar{
-  width:28px;height:28px;border-radius:50%;
-  border:2px solid var(--bg);margin-left:-8px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:600;color:#fff;
-}
-.proof-avatars .proof-avatar:first-child{margin-left:0}
 
-/* ── SECTION SHARED ── */
-section{padding:6rem 1.5rem}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-eyebrow{
-  font-family:'Syne',sans-serif;font-size:10px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
-  margin-bottom:.6rem;
-}
-.section-h2{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:clamp(1.8rem,4vw,2.6rem);
-  line-height:1.12;letter-spacing:-.025em;
-  color:var(--text);margin-bottom:1rem;
-}
-.section-lead{
-  font-size:16px;color:var(--muted);font-weight:300;
-  line-height:1.7;max-width:520px;
-}
+/* SECTIONS */
+section{padding:5.5rem 1.5rem}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-eyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+h2.section-h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.5vw,2.3rem);line-height:1.12;letter-spacing:-.025em;color:var(--text);margin-bottom:.9rem}
+.section-lead{font-size:15px;color:var(--muted);font-weight:300;line-height:1.75;max-width:480px}
 
-/* ── HOW IT WORKS ── */
+/* HOW IT WORKS — vertical timeline style */
 #how{background:var(--white)}
-.steps-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:2px;margin-top:3.5rem;
-  border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
-}
-.step{
-  padding:2.5rem 2rem;background:var(--white);
-  border-right:1px solid var(--border);
-  transition:background .2s;
-}
-.step:last-child{border-right:none}
-.step:hover{background:var(--surface)}
-.step-num{
-  font-family:'Syne',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:1.25rem;
-  display:flex;align-items:center;gap:10px;
-}
-.step-num::after{content:'';flex:1;height:1px;background:var(--border)}
-.step-icon{
-  width:44px;height:44px;border-radius:10px;
-  background:var(--surface);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.1rem;
-}
-.step-title{
-  font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;
-  color:var(--text);margin-bottom:.5rem;letter-spacing:-.01em;
-}
-.step-desc{font-size:13px;color:var(--muted);font-weight:300;line-height:1.65}
+.steps-list{margin-top:3.5rem;display:flex;flex-direction:column;gap:0}
+.step-row{display:grid;grid-template-columns:52px 1fr;gap:0;position:relative}
+.step-spine{display:flex;flex-direction:column;align-items:center;padding-top:4px}
+.step-circle{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1}
+.step-circle-num{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--accent)}
+.step-line{width:1.5px;flex:1;background:var(--border);margin:6px 0}
+.step-row:last-child .step-line{display:none}
+.step-body{padding:0 0 3rem 1.5rem}
+.step-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;letter-spacing:-.01em;padding-top:6px}
+.step-desc{font-size:13px;color:var(--muted);font-weight:300;line-height:1.7}
+.step-note{margin-top:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;font-size:12px;color:var(--muted);font-weight:300;line-height:1.6;display:inline-block}
 
-/* ── FEATURES ── */
+/* FEATURES */
 #features{background:var(--bg)}
-.features-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:1.5rem;margin-top:3.5rem;
-}
-.feature-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--radius-lg);padding:2rem;
-  transition:border-color .2s,transform .2s;
-}
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:3rem}
+.feature-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;transition:border-color .2s,transform .2s}
 .feature-card:hover{border-color:var(--border2);transform:translateY(-2px)}
 .feature-card.wide{grid-column:1/-1}
-.feature-icon{
-  width:40px;height:40px;border-radius:9px;
-  background:var(--surface);border:1px solid var(--border2);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.1rem;
-}
-.feature-title{
-  font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;
-  color:var(--text);margin-bottom:.45rem;letter-spacing:-.01em;
-}
+.feature-icon{width:38px;height:38px;border-radius:9px;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.feature-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:.4rem;letter-spacing:-.01em}
 .feature-desc{font-size:13px;color:var(--muted);font-weight:300;line-height:1.65}
 
-/* ── PORTFOLIO PREVIEW ── */
-#preview{background:var(--surface)}
-.preview-window{
-  margin-top:3rem;background:var(--white);
-  border:1px solid var(--border);border-radius:var(--radius-lg);
-  overflow:hidden;box-shadow:0 20px 60px rgba(124,58,237,0.08);
-}
-.preview-bar{
-  height:44px;background:var(--bg);border-bottom:1px solid var(--border);
-  display:flex;align-items:center;padding:0 1.25rem;gap:8px;
-}
-.preview-dot{width:10px;height:10px;border-radius:50%}
-.preview-url{
-  flex:1;height:26px;background:var(--surface);border:1px solid var(--border);
-  border-radius:999px;margin:0 1rem;display:flex;align-items:center;
-  padding:0 12px;font-size:11px;color:var(--faint);
-}
-.preview-body{padding:2.5rem;display:grid;grid-template-columns:200px 1fr;gap:2rem;align-items:start}
-.preview-photo{
-  width:200px;height:260px;background:var(--surface2);
-  border-radius:10px;border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-.preview-info{}
-.preview-name{
-  font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;
-  color:var(--text);letter-spacing:-.02em;margin-bottom:.3rem;
-}
-.preview-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
-.preview-tag{
-  font-size:11px;padding:4px 12px;border-radius:999px;
-  background:var(--surface);border:1px solid var(--border);
-  color:var(--muted);font-weight:400;
-}
-.preview-tag.accent{background:var(--accent);border-color:var(--accent);color:#fff}
-.preview-section-label{
-  font-family:'Syne',sans-serif;font-size:9px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
-  margin-bottom:.5rem;
-}
-.preview-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
-.preview-chip{
-  font-size:12px;padding:4px 10px;border-radius:5px;
-  background:var(--surface);color:var(--text);border:1px solid var(--border);
-}
-.preview-links{display:flex;gap:8px;margin-top:.5rem}
-.preview-link-dot{
-  width:32px;height:32px;border-radius:7px;
-  background:var(--surface);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-}
-
-/* ── CTA BAND ── */
-#cta-band{
-  background:var(--accent);padding:5rem 1.5rem;text-align:center;
-}
-.cta-band-inner{max-width:600px;margin:0 auto}
-.cta-band-h{
-  font-family:'Syne',sans-serif;font-weight:800;
-  font-size:clamp(1.8rem,4vw,2.5rem);
-  color:#fff;letter-spacing:-.025em;margin-bottom:.85rem;line-height:1.12;
-}
-.cta-band-sub{
-  font-size:15px;color:rgba(255,255,255,0.65);
-  font-weight:300;line-height:1.65;margin-bottom:2.25rem;
-}
-.btn-white{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#fff;color:var(--accent);
-  font-family:'Syne',sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  padding:13px 28px;border-radius:var(--radius);
-  border:none;cursor:pointer;transition:all .2s;text-decoration:none;
-}
+/* CTA BAND */
+#cta-band{background:var(--accent);padding:5rem 1.5rem;text-align:center}
+.cta-band-inner{max-width:540px;margin:0 auto}
+.cta-band-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.5vw,2.2rem);color:#fff;letter-spacing:-.025em;margin-bottom:.8rem;line-height:1.12}
+.cta-band-sub{font-size:14px;color:rgba(255,255,255,0.58);font-weight:300;line-height:1.75;margin-bottom:2rem}
+.btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--accent);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:all .2s;text-decoration:none}
 .btn-white:hover{background:var(--surface);transform:translateY(-1px)}
 
-/* ── FORM PAGE ── */
-#form-page{display:none;padding-top:62px}
-.form-header{
-  background:var(--white);border-bottom:1px solid var(--border);
-  padding:2.5rem 1.5rem 0;
-  position:sticky;top:62px;z-index:50;
-}
-.form-header-inner{max-width:660px;margin:0 auto}
-.form-progress-label{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:.75rem;
-}
-.form-progress-label span{font-size:12px;color:var(--faint)}
-.form-progress-label strong{
-  font-family:'Syne',sans-serif;font-size:12px;font-weight:700;
-  color:var(--accent);letter-spacing:.06em;
-}
-.form-progress-bar-wrap{height:3px;background:var(--border);border-radius:2px;margin-bottom:1.5rem}
-.form-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
+/* CONTACT */
+#contact{background:var(--white);padding:4.5rem 1.5rem}
+.contact-inner{max-width:520px;margin:0 auto;text-align:center}
+.contact-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.contact-item{display:flex;align-items:center;gap:9px;background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:.75rem 1.1rem;font-size:13px;color:var(--text);text-decoration:none;transition:border-color .2s}
+.contact-item:hover{border-color:var(--border2)}
+.contact-item-icon{width:30px;height:30px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-note{font-size:13px;color:var(--faint);font-weight:300;margin-top:1.25rem;line-height:1.65}
 
+/* EARLY ADOPTER BAND */
+#early{background:var(--text);padding:5.5rem 1.5rem;text-align:center;position:relative;overflow:hidden}
+#early::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.18) 0%,transparent 70%);pointer-events:none}
+.early-inner{max-width:560px;margin:0 auto;position:relative;z-index:1}
+.early-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.25);border:1px solid rgba(168,85,247,0.35);border-radius:999px;padding:5px 16px;margin-bottom:1.5rem}
+.early-badge-dot{width:6px;height:6px;border-radius:50%;background:#A855F7;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.early-badge-text{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C4A8F0}
+.early-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);color:#EEEAE3;letter-spacing:-.025em;line-height:1.1;margin-bottom:1rem}
+.early-h em{font-style:normal;color:#A855F7}
+.early-sub{font-size:14px;color:rgba(200,196,188,0.65);font-weight:300;line-height:1.8;margin-bottom:.6rem;max-width:440px;margin-left:auto;margin-right:auto}
+.early-sub2{font-size:13px;color:rgba(200,196,188,0.38);font-weight:300;line-height:1.7;margin-bottom:2.25rem;font-style:italic}
+.early-disclaimer{font-size:11px;color:rgba(200,196,188,0.3);margin-top:1.25rem;font-weight:300;line-height:1.6}
+
+/* FOOTER */
+footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-top:1px solid rgba(124,58,237,0.15)}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#EDE5FF;letter-spacing:-.02em;margin-bottom:.35rem}
+.footer-sub{font-size:12px;color:rgba(237,229,255,0.28);font-weight:300}
+
+/* FORM PAGE */
+#form-page{display:none;padding-top:62px}
+.form-header{background:var(--white);border-bottom:1px solid var(--border);padding:1.75rem 1.5rem 0;position:sticky;top:62px;z-index:50}
+.form-header-inner{max-width:660px;margin:0 auto}
+.form-progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
+.form-progress-label span{font-size:12px;color:var(--faint)}
+.form-progress-label strong{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.06em}
+.fpb-wrap{height:3px;background:var(--border);border-radius:2px;margin-bottom:1.5rem}
+.fpb{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
 .form-body{max-width:660px;margin:0 auto;padding:3rem 1.5rem 6rem}
-.section-eyebrow2{
-  font-family:'Syne',sans-serif;font-size:10px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem;
-}
-.section-title2{
-  font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;
-  color:var(--text);margin-bottom:.4rem;line-height:1.15;letter-spacing:-.02em;
-}
-.section-desc2{font-size:14px;color:var(--muted);margin-bottom:2.75rem;font-weight:300;line-height:1.65}
+.feyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem}
+.ftitle{font-family:'Syne',sans-serif;font-size:1.85rem;font-weight:800;color:var(--text);margin-bottom:.4rem;line-height:1.15;letter-spacing:-.02em}
+.fdesc{font-size:14px;color:var(--muted);margin-bottom:2.75rem;font-weight:300;line-height:1.65}
 .subsec{margin-bottom:2.25rem}
-.subsec-label{
-  font-family:'Syne',sans-serif;font-size:10px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
-  margin-bottom:.9rem;padding-bottom:.55rem;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:8px;
-}
+.subsec-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;padding-bottom:.55rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
 .subsec-label::before{content:'';width:3px;height:10px;background:var(--accent);border-radius:2px;flex-shrink:0}
 .field{margin-bottom:1.1rem}
 .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:.38rem;font-weight:500;letter-spacing:.02em}
-.field input[type=text],.field input[type=number],.field input[type=tel],
-.field input[type=email],.field input[type=url],.field select{
-  width:100%;height:44px;padding:0 14px;
-  border:1px solid var(--border);border-radius:var(--radius);
-  background:var(--white);color:var(--text);
-  font-family:'DM Sans',sans-serif;font-size:14px;
-  transition:border-color .2s,box-shadow .2s;
-  appearance:none;-webkit-appearance:none;
-}
+.field input[type=text],.field input[type=number],.field input[type=tel],.field input[type=email],.field input[type=url],.field select{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
 .field input::placeholder{color:var(--faint)}
-.field input:focus,.field select:focus{
-  outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-g);
-}
-.field select{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237C6A9A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 14px center;
-  padding-right:36px;cursor:pointer;background-color:var(--white);
-}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-g)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237C6A9A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;background-color:var(--white)}
 .field-hint{font-size:12px;color:var(--faint);margin-top:4px;font-style:italic;font-weight:300;line-height:1.5}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:7px}
-.check-item{
-  display:flex;align-items:center;gap:9px;padding:9px 13px;
-  border:1px solid var(--border);border-radius:var(--radius);
-  cursor:pointer;font-size:13px;color:var(--muted);
-  background:var(--white);transition:all .15s;user-select:none;line-height:1.3;
-}
+.check-item{display:flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:13px;color:var(--muted);background:var(--white);transition:all .15s;user-select:none;line-height:1.3}
 .check-item:hover{border-color:var(--border2);color:var(--text);background:var(--surface)}
 .check-item input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent);flex-shrink:0;cursor:pointer}
 .check-item.checked{border-color:var(--accent);background:var(--surface);color:var(--text)}
 .radio-row{display:flex;flex-wrap:wrap;gap:7px}
-.radio-pill{
-  padding:7px 18px;border:1px solid var(--border);border-radius:999px;
-  font-size:13px;color:var(--muted);cursor:pointer;
-  background:var(--white);transition:all .15s;user-select:none;
-  white-space:nowrap;font-family:'DM Sans',sans-serif;
-}
+.radio-pill{padding:7px 18px;border:1px solid var(--border);border-radius:999px;font-size:13px;color:var(--muted);cursor:pointer;background:var(--white);transition:all .15s;user-select:none;white-space:nowrap;font-family:'DM Sans',sans-serif}
 .radio-pill:hover{border-color:var(--border2);color:var(--text)}
 .radio-pill.selected{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:500}
 .tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px;min-height:2px}
-.tag{
-  display:flex;align-items:center;gap:6px;padding:5px 13px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:999px;font-size:12px;color:var(--text);
-}
+.tag{display:flex;align-items:center;gap:6px;padding:5px 13px;background:var(--surface);border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--text)}
 .tag-remove{cursor:pointer;color:var(--faint);font-size:15px;line-height:1;transition:color .15s}
 .tag-remove:hover{color:var(--accent)}
 .tag-add-row{display:flex;gap:8px}
-.tag-add-row input{
-  flex:1;height:40px;padding:0 13px;
-  border:1px solid var(--border);border-radius:var(--radius);
-  font-family:'DM Sans',sans-serif;font-size:13px;
-  color:var(--text);background:var(--white);transition:all .2s;
-}
+.tag-add-row input{flex:1;height:40px;padding:0 13px;border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:var(--white);transition:all .2s}
 .tag-add-row input::placeholder{color:var(--faint)}
 .tag-add-row input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-g)}
-.btn-add{
-  height:40px;padding:0 16px;border:1px solid var(--border);border-radius:var(--radius);
-  background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;
-  font-size:13px;cursor:pointer;white-space:nowrap;transition:all .15s;
-}
+.btn-add{height:40px;padding:0 16px;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;white-space:nowrap;transition:all .15s}
 .btn-add:hover{border-color:var(--accent);color:var(--accent);background:var(--surface)}
 .cond{display:none;margin-top:10px}
 .cond.show{display:block}
-.nav-row{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border);
-}
-.btn-nav{
-  height:46px;padding:0 28px;border:1px solid var(--border);border-radius:var(--radius);
-  background:var(--white);color:var(--muted);font-family:'Syne',sans-serif;
-  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  cursor:pointer;transition:all .2s;
-}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+.btn-nav{height:46px;padding:0 28px;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);color:var(--muted);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s}
 .btn-nav:hover:not(:disabled){border-color:var(--border2);color:var(--text)}
 .btn-nav.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 .btn-nav.primary:hover{background:#6D28D9;border-color:#6D28D9}
 .btn-nav:disabled{opacity:.3;cursor:not-allowed}
 
-/* ── SUCCESS ── */
-#success-screen{display:none;text-align:center;padding:5rem 2rem}
-.success-ring{
-  width:68px;height:68px;border:1.5px solid var(--accent);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 1.75rem;color:var(--accent);font-size:26px;
-}
-.success-title{font-family:'Syne',sans-serif;font-size:2.1rem;font-weight:800;color:var(--text);margin-bottom:.75rem;letter-spacing:-.02em}
-.success-desc{font-size:14px;color:var(--muted);max-width:380px;margin:0 auto 2.5rem;line-height:1.7;font-weight:300}
-.btn-download{
-  display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 32px;
-  background:var(--accent);color:#fff;border:none;border-radius:var(--radius);
-  font-family:'Syne',sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;
-}
+/* SUCCESS */
+#success-screen{display:none;text-align:center;padding:3.5rem 1rem}
+.success-ring{width:64px;height:64px;border:1.5px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;color:var(--accent);font-size:24px}
+.success-title{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:var(--text);margin-bottom:.6rem;letter-spacing:-.02em}
+.success-desc{font-size:14px;color:var(--muted);max-width:400px;margin:0 auto 2rem;line-height:1.75;font-weight:300}
+.success-steps{display:flex;flex-direction:column;gap:8px;max-width:400px;margin:0 auto 2rem;text-align:left}
+.success-step{display:flex;align-items:flex-start;gap:11px;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.9rem 1rem}
+.success-step-num{width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.success-step-text{font-size:13px;color:var(--text);line-height:1.55;font-weight:300}
+.success-step-text strong{font-weight:500}
+.btn-download{display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 32px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
 .btn-download:hover{background:#6D28D9;transform:translateY(-1px)}
-.btn-restart{
-  display:block;margin:1.25rem auto 0;background:none;border:none;
-  font-family:'DM Sans',sans-serif;font-size:13px;color:var(--faint);
-  cursor:pointer;transition:color .15s;text-decoration:underline;text-underline-offset:3px;
-}
-.btn-restart:hover{color:var(--accent)}
+.success-contact{margin-top:1.75rem;padding-top:1.75rem;border-top:1px solid var(--border)}
+.success-contact-label{font-size:12px;color:var(--faint);font-weight:300;margin-bottom:.9rem}
+.scc-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.scc{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.6rem 1rem;font-size:13px;color:var(--text);text-decoration:none;transition:border-color .15s}
+.scc:hover{border-color:var(--border2)}
+.scc-icon{width:26px;height:26px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.btn-back{display:block;margin:1.5rem auto 0;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--faint);cursor:pointer;transition:color .15s;text-decoration:underline;text-underline-offset:3px}
+.btn-back:hover{color:var(--accent)}
 
-/* ── FOOTER ── */
-footer{background:var(--text);padding:3rem 1.5rem;text-align:center}
-.footer-inner{max-width:660px;margin:0 auto}
-.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:#EDE5FF;letter-spacing:-.02em;margin-bottom:.5rem}
-.footer-sub{font-size:13px;color:rgba(237,229,255,0.35);font-weight:300}
-
-/* ── RESPONSIVE ── */
 @media(max-width:768px){
-  nav{padding:0 1.25rem}
-  .nav-links{display:none}
-  .steps-grid{grid-template-columns:1fr}
-  .step{border-right:none;border-bottom:1px solid var(--border)}
-  .step:last-child{border-bottom:none}
-  .features-grid{grid-template-columns:1fr}
-  .feature-card.wide{grid-column:1}
-  .preview-body{grid-template-columns:1fr}
-  .preview-photo{width:100%;height:180px}
+  nav{padding:0 1.25rem}.nav-links{display:none}
+  .features-grid{grid-template-columns:1fr}.feature-card.wide{grid-column:1}
 }
 @media(max-width:540px){
-  .two-col{grid-template-columns:1fr}
-  .check-grid{grid-template-columns:1fr 1fr}
+  .two-col{grid-template-columns:1fr}.check-grid{grid-template-columns:1fr 1fr}
   .form-body{padding:2rem 1.25rem 5rem}
+  .contact-row{flex-direction:column;align-items:stretch}
 }
 </style>
 </head>
 <body>
 
-<!-- ══ NAVIGATION ══ -->
+<!-- NAV -->
 <nav id="main-nav">
   <a class="nav-logo" href="#home">
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
       <defs><linearGradient id="nlg" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs>
-      <path d="M4 26 Q12 26 18 18 Q24 10 28 4" stroke="url(#nlg)" stroke-width="2.8" stroke-linecap="round" fill="none"/>
-      <line x1="4" y1="26" x2="28" y2="26" stroke="#DDD5F5" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M4 25 Q11 25 17 17 Q23 9 27 3" stroke="url(#nlg)" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+      <line x1="4" y1="25" x2="27" y2="25" stroke="#DDD5F5" stroke-width="1.2" stroke-linecap="round"/>
     </svg>
     <span class="nav-logo-word">arc</span>
   </a>
   <div class="nav-links">
     <a href="#how">How it works</a>
-    <a href="#features">Features</a>
-    <a href="#preview">Portfolio</a>
+    <a href="#features">What we cover</a>
+    <a href="#contact">Contact</a>
   </div>
-  <a class="nav-cta" href="#" onclick="showForm(event)">Get started →</a>
+  <button class="nav-cta" onclick="showForm()">Get started →</button>
 </nav>
 
-<!-- ══ LANDING PAGE ══ -->
+<!-- LANDING -->
 <div id="landing-page">
 
   <!-- HERO -->
   <section id="home">
-    <div class="hero-bg-arc">
-      <svg width="900" height="900" viewBox="0 0 900 900" fill="none" style="opacity:.045">
-        <path d="M100 750 Q300 750 450 500 Q600 250 750 80" stroke="#7C3AED" stroke-width="120" stroke-linecap="round" fill="none"/>
+    <div class="hero-bg">
+      <svg width="900" height="900" viewBox="0 0 900 900" fill="none" style="opacity:.04">
+        <path d="M100 750 Q300 750 450 500 Q600 250 750 80" stroke="#7C3AED" stroke-width="130" stroke-linecap="round" fill="none"/>
       </svg>
     </div>
     <div class="hero-content">
-      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Actor Portfolio Platform</div>
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Actor Portfolio Websites</div>
       <h1 class="hero-h1">Your craft deserves<br>a <em>proper stage.</em></h1>
-      <p class="hero-sub">Arc builds beautiful, professional portfolio websites for actors — capturing your skills, experience, and story in one place casting directors actually want to visit.</p>
+      <p class="hero-sub">We build polished, professional portfolio websites for actors — so everything a casting director needs to know about you is in one place.</p>
       <div class="hero-btns">
-        <button class="btn-primary" onclick="showForm(event)">
+        <button class="btn-primary" onclick="showForm()">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Build my portfolio
+          Start my portfolio
         </button>
         <a class="btn-ghost" href="#how">See how it works</a>
-      </div>
-      <div class="hero-social-proof">
-        <div class="proof-avatars">
-          <div class="proof-avatar" style="background:#7C3AED">P</div>
-          <div class="proof-avatar" style="background:#A855F7">R</div>
-          <div class="proof-avatar" style="background:#6D28D9">S</div>
-          <div class="proof-avatar" style="background:#9333EA">A</div>
-        </div>
-        <span>Trusted by actors across India</span>
       </div>
     </div>
   </section>
@@ -486,33 +244,66 @@ footer{background:var(--text);padding:3rem 1.5rem;text-align:center}
   <section id="how">
     <div class="section-inner">
       <div class="section-eyebrow">How it works</div>
-      <h2 class="section-h2">Three steps to your portfolio</h2>
-      <p class="section-lead">No design skills needed. No tech knowledge required. Just fill in your details and we handle the rest.</p>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-icon">
-            <svg width="20" height="20" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12h6M9 16h4M7 4H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2M9 4a2 2 0 002 2h2a2 2 0 002-2M9 4a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h2 class="section-h2">From form to live website</h2>
+      <p class="section-lead">A straightforward process — you provide the information, we handle everything else.</p>
+
+      <div class="steps-list" style="margin-top:3rem;max-width:600px">
+
+        <div class="step-row">
+          <div class="step-spine">
+            <div class="step-circle"><span class="step-circle-num">1</span></div>
+            <div class="step-line"></div>
           </div>
-          <div class="step-title">Fill the form</div>
-          <div class="step-desc">Answer questions about your skills, experience, training, and online presence. Takes about 10 minutes. No writing required — everything is tick-boxes and dropdowns.</div>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-icon">
-            <svg width="20" height="20" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="step-body">
+            <div class="step-title">Fill the form</div>
+            <div class="step-desc">Answer questions about your skills, experience, training, and online presence. Everything is tick-boxes and dropdowns — no writing required. Takes about 10 minutes.</div>
           </div>
-          <div class="step-title">Download & send</div>
-          <div class="step-desc">Your answers are compiled into a clean PDF automatically. Download it and send it to us — no account needed, no login, nothing to install.</div>
         </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-icon">
-            <svg width="20" height="20" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+        <div class="step-row">
+          <div class="step-spine">
+            <div class="step-circle"><span class="step-circle-num">2</span></div>
+            <div class="step-line"></div>
           </div>
-          <div class="step-title">Go live</div>
-          <div class="step-desc">We build your portfolio website from your form data and send you a live link. Your own URL, your own page — ready to share with directors and producers.</div>
+          <div class="step-body">
+            <div class="step-title">Download & send us the PDF</div>
+            <div class="step-desc">Your answers compile into a PDF automatically. Download it and send it to us on WhatsApp or email.</div>
+          </div>
         </div>
+
+        <div class="step-row">
+          <div class="step-spine">
+            <div class="step-circle"><span class="step-circle-num">3</span></div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Briefing call</div>
+            <div class="step-desc">We get on a call to understand your branding, image, and how you'd like to present yourself. From this, we decide the look, feel, colours, and layout of your portfolio.</div>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-spine">
+            <div class="step-circle"><span class="step-circle-num">4</span></div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Upload your media</div>
+            <div class="step-desc">We share a Google Drive link with clearly labelled folders — headshots, portfolio shoots, introduction video, previous work, and more. You upload directly into each folder.</div>
+            <div class="step-note">Folders are pre-titled so you know exactly what goes where.</div>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-spine">
+            <div class="step-circle"><span class="step-circle-num">5</span></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Your portfolio goes live</div>
+            <div class="step-desc">We compile your information and media, build your personally branded portfolio website, and share the live link with you — ready to share with whoever you choose.</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -520,88 +311,37 @@ footer{background:var(--text);padding:3rem 1.5rem;text-align:center}
   <!-- FEATURES -->
   <section id="features">
     <div class="section-inner">
-      <div class="section-eyebrow">Why Arc</div>
-      <h2 class="section-h2">Everything a casting director needs to see</h2>
-      <p class="section-lead">Arc portfolios are designed specifically for the Indian performing arts industry.</p>
+      <div class="section-eyebrow">What we cover</div>
+      <h2 class="section-h2">Built for the Indian performing arts industry</h2>
+      <p class="section-lead">Not a generic template. Every section of your portfolio is designed around how the industry actually works.</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">
             <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke-linecap="round"/></svg>
           </div>
-          <div class="feature-title">Built for Indian actors</div>
-          <div class="feature-desc">Covers regional languages, classical dance forms, Natyashastra-rooted skills, theatre associations, and industry-specific experience levels.</div>
+          <div class="feature-title">Identity & vitals</div>
+          <div class="feature-desc">Name, age, pronouns, height, weight, city — the essentials, presented clearly and professionally.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12-3c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="feature-title">Skills & performance</div>
+          <div class="feature-desc">Dance forms, vocal training, languages spoken, vehicles, special skills, and coaching experience.</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
             <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9" stroke-linecap="round"/></svg>
           </div>
-          <div class="feature-title">All mediums covered</div>
-          <div class="feature-desc">Films, OTT, television, theatre, street plays, ad films, voice-over — your portfolio reflects exactly where you work.</div>
+          <div class="feature-title">Experience & training</div>
+          <div class="feature-desc">Every medium covered — films, OTT, theatre, television, ad films. Plus training background, workshops, and theatre associations.</div>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3l2.5 6.5H21l-5.5 4 2 6.5L12 16l-5.5 4 2-6.5L3 9.5h6.5z" stroke-linejoin="round"/></svg>
+            <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-linecap="round"/></svg>
           </div>
-          <div class="feature-title">Skills that matter</div>
-          <div class="feature-desc">Dance styles, voice training, vehicles, combat, teaching experience — the details that get you cast in specific roles.</div>
-        </div>
-        <div class="feature-card wide">
-          <div class="feature-icon">
-            <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-linecap="round"/></svg>
-          </div>
-          <div class="feature-title">All your links in one place</div>
-          <div class="feature-desc">Instagram, YouTube, IMDb, LinkedIn, casting sites — your portfolio pulls everything together so casting directors don't have to hunt for you across the internet.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO PREVIEW -->
-  <section id="preview">
-    <div class="section-inner">
-      <div class="section-eyebrow">What you get</div>
-      <h2 class="section-h2">A portfolio that looks the part</h2>
-      <p class="section-lead">Clean, professional, and built to impress. Here's what your Arc portfolio page looks like.</p>
-      <div class="preview-window">
-        <div class="preview-bar">
-          <div class="preview-dot" style="background:#F09090"></div>
-          <div class="preview-dot" style="background:#F0D090"></div>
-          <div class="preview-dot" style="background:#90D090"></div>
-          <div class="preview-url">arc.portfolio/priya-sharma</div>
-        </div>
-        <div class="preview-body">
-          <div class="preview-photo">
-            <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
-              <circle cx="24" cy="18" r="9" stroke="#C4A8F0" stroke-width="1.5" fill="none"/>
-              <path d="M6 42c0-9.9 8.1-18 18-18s18 8.1 18 18" stroke="#C4A8F0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="preview-info">
-            <div class="preview-name">Priya Sharma</div>
-            <div class="preview-meta">
-              <span class="preview-tag accent">Mid-level · 4 yrs</span>
-              <span class="preview-tag">She / her</span>
-              <span class="preview-tag">Mumbai</span>
-              <span class="preview-tag">28 yrs · 163 cm</span>
-            </div>
-            <div class="preview-section-label">Languages</div>
-            <div class="preview-chips" style="margin-bottom:1rem">
-              <span class="preview-chip">Hindi</span><span class="preview-chip">Marathi</span><span class="preview-chip">English</span><span class="preview-chip">French</span>
-            </div>
-            <div class="preview-section-label">Skills</div>
-            <div class="preview-chips">
-              <span class="preview-chip">Kathak</span><span class="preview-chip">Contemporary</span><span class="preview-chip">Trained singer</span><span class="preview-chip">Voice acting</span><span class="preview-chip">Horse riding</span>
-            </div>
-            <div class="preview-section-label" style="margin-top:1rem">Mediums</div>
-            <div class="preview-chips">
-              <span class="preview-chip">Films (Hindi)</span><span class="preview-chip">Theatre</span><span class="preview-chip">Web series (OTT)</span>
-            </div>
-            <div class="preview-links">
-              <div class="preview-link-dot"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#7C3AED" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></div>
-              <div class="preview-link-dot"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#7C3AED" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z" stroke-linecap="round"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#7C3AED" stroke="none"/></svg></div>
-              <div class="preview-link-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
-            </div>
-          </div>
+          <div class="feature-title">All your links</div>
+          <div class="feature-desc">Instagram, YouTube, IMDb, LinkedIn and more — everything in one place so you're easy to find.</div>
         </div>
       </div>
     </div>
@@ -610,25 +350,57 @@ footer{background:var(--text);padding:3rem 1.5rem;text-align:center}
   <!-- CTA BAND -->
   <div id="cta-band">
     <div class="cta-band-inner">
-      <div class="cta-band-h">Ready to build your portfolio?</div>
-      <div class="cta-band-sub">Fill the form in about 10 minutes. No account needed. Your portfolio PDF is ready to download immediately.</div>
-      <button class="btn-white" onclick="showForm(event)">
-        Start the form →
-      </button>
+      <div class="cta-band-h">Ready to get started?</div>
+      <div class="cta-band-sub">Fill the form in about 10 minutes. We'll take care of the rest.</div>
+      <button class="btn-white" onclick="showForm()">Start the form →</button>
     </div>
   </div>
 
+  <!-- EARLY ADOPTER -->
+  <section id="early">
+    <div class="early-inner">
+      <div class="early-badge"><span class="early-badge-dot"></span><span class="early-badge-text">We're just getting started</span></div>
+      <div class="early-h">Be among the<br><em>first few.</em></div>
+      <div class="early-sub">Arc is brand new. We're onboarding our first batch of actors — and to mark that, the first portfolios we build come at a special introductory price.</div>
+      <div class="early-sub2">This is a limited window. Once the first batch fills up, regular pricing applies.</div>
+      <button class="btn-primary" onclick="showForm()" style="font-size:13px;padding:14px 32px"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg> Claim your spot</button>
+      <div class="early-disclaimer">Fill the form and send it to us 2014 we'll get in touch with pricing and next steps.</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="section-eyebrow" style="text-align:center">Get in touch</div>
+      <h2 class="section-h2" style="text-align:center;font-size:1.7rem">Have a question?</h2>
+      <p class="section-lead" style="margin:0 auto;text-align:center;max-width:380px">Reach out on WhatsApp or email — for queries, pricing, or to send your completed PDF.</p>
+      <div class="contact-row">
+        <a class="contact-item" href="https://wa.me/919454905329" target="_blank">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          +91 94549 05329
+        </a>
+        <a class="contact-item" href="/cdn-cgi/l/email-protection#b6ddc5dedfc2dfdcd7c2d7c4d5f6d1dbd7dfda98d5d9db">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <span class="__cf_email__" data-cfemail="f69d859e9f829f9c9782978495b6919b979f9ad895999b">[email&#160;protected]</span>
+        </a>
+      </div>
+      <div class="contact-note">After filling the form, download your PDF and send it to us. We'll follow up within 24 hours.</div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">arc</div>
-      <div class="footer-sub">Actor portfolio websites for the Indian performing arts industry.</div>
-    </div>
+    <div class="footer-logo">arc</div>
+    <div class="footer-sub">Actor portfolio websites · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f647c67667b66656e7b6e7d6c4f68626e6663216c6062">[email&#160;protected]</a> · +91 94549 05329</div>
   </footer>
 
 </div><!-- end landing -->
 
-<!-- ══ FORM PAGE ══ -->
+<!-- FORM PAGE -->
 <div id="form-page">
   <div class="form-header">
     <div class="form-header-inner">
@@ -636,337 +408,126 @@ footer{background:var(--text);padding:3rem 1.5rem;text-align:center}
         <span id="form-step-label">Step 1 of 7</span>
         <strong id="form-section-name">Personal details</strong>
       </div>
-      <div class="form-progress-bar-wrap">
-        <div class="form-progress-bar" id="form-progress-bar"></div>
-      </div>
+      <div class="fpb-wrap"><div class="fpb" id="fpb"></div></div>
     </div>
   </div>
   <div class="form-body">
     <div id="form-container"></div>
     <div id="success-screen">
       <div class="success-ring">✓</div>
-      <div class="success-title">You're all set.</div>
-      <div class="success-desc">Your portfolio form is ready. Download the PDF below and send it to us — we'll be in touch soon.</div>
+      <div class="success-title">Form complete.</div>
+      <div class="success-desc">Download the PDF below, then send it to us — and we'll get the process started.</div>
+      <div class="success-steps">
+        <div class="success-step">
+          <div class="success-step-num">1</div>
+          <div class="success-step-text">Click <strong>Download PDF</strong> — your completed form saves to your device.</div>
+        </div>
+        <div class="success-step">
+          <div class="success-step-num">2</div>
+          <div class="success-step-text">Send the PDF to us on <strong>WhatsApp</strong> or <strong>email</strong> using the buttons below.</div>
+        </div>
+        <div class="success-step">
+          <div class="success-step-num">3</div>
+          <div class="success-step-text">We'll be in touch within <strong>24 hours</strong> to schedule a briefing call and walk you through the next steps.</div>
+        </div>
+      </div>
       <button class="btn-download" onclick="generatePDF()">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v13M7 11l5 5 5-5M5 20h14" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Download PDF
       </button>
-      <button class="btn-restart" onclick="backToHome()">← Back to Arc</button>
+      <div class="success-contact">
+        <div class="success-contact-label">Then send the PDF to us</div>
+        <div class="scc-row">
+          <a class="scc" href="https://wa.me/919454905329" target="_blank">
+            <div class="scc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+            WhatsApp
+          </a>
+          <a class="scc" href="/cdn-cgi/l/email-protection#375c445f5e435e5d564356455477505a565e5b1954585a">
+            <div class="scc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            Email
+          </a>
+        </div>
+      </div>
+      <button class="btn-back" onclick="backToHome()">← Back to Arc</button>
     </div>
   </div>
 </div>
 
-<script>
-// ── Page switching ──
-function showForm(e){
-  if(e)e.preventDefault();
-  document.getElementById('landing-page').style.display='none';
-  document.getElementById('form-page').style.display='block';
-  document.getElementById('main-nav').style.display='none';
-  window.scrollTo({top:0,behavior:'smooth'});
-  showSection(0);
-}
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function showForm(){document.getElementById('landing-page').style.display='none';document.getElementById('form-page').style.display='block';document.getElementById('main-nav').style.display='none';window.scrollTo({top:0,behavior:'smooth'});showSection(0)}
+function backToHome(){document.getElementById('form-page').style.display='none';document.getElementById('landing-page').style.display='block';document.getElementById('main-nav').style.display='flex';document.getElementById('success-screen').style.display='none';document.getElementById('form-container').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
 
-function backToHome(){
-  document.getElementById('form-page').style.display='none';
-  document.getElementById('landing-page').style.display='block';
-  document.getElementById('main-nav').style.display='flex';
-  document.getElementById('success-screen').style.display='none';
-  document.getElementById('form-container').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-// ── Data store ──
-const data={};
-const TOTAL=7;
-let cur=0;
+const data={};const TOTAL=7;let cur=0;
 
 const sections=[
-  {id:'s1',eyebrow:'01 — Identity',title:'Personal details',name:'Personal details',
-   desc:'Your name, vitals, location, and how we reach you.',
-   render(){return`
-    <div class="subsec"><div class="subsec-label">Full name</div>
-      <div class="two-col">
-        <div class="field"><label>First name</label><input type="text" id="firstName" placeholder="e.g. Priya" oninput="save('firstName',this.value)"></div>
-        <div class="field"><label>Last name</label><input type="text" id="lastName" placeholder="e.g. Sharma" oninput="save('lastName',this.value)"></div>
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Age & pronouns</div>
-      <div class="two-col">
-        <div class="field"><label>Age</label><input type="number" id="age" placeholder="e.g. 28" min="5" max="100" oninput="save('age',this.value)"></div>
-        <div class="field"><label>Pronouns</label><select id="pronouns" onchange="save('pronouns',this.value)">
-          <option value="">Select</option><option>She / her</option><option>He / him</option><option>They / them</option><option>She / they</option><option>He / they</option><option>Any / all</option><option>Prefer not to say</option>
-        </select></div>
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Physical</div>
-      <div class="two-col">
-        <div class="field"><label>Height (cm)</label><input type="number" id="height" placeholder="e.g. 165" min="100" max="230" oninput="save('height',this.value)"></div>
-        <div class="field"><label>Weight (kg) — optional</label><input type="number" id="weight" placeholder="e.g. 60" oninput="save('weight',this.value)"></div>
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Location</div>
-      <div class="two-col">
-        <div class="field"><label>City</label><input type="text" id="city" placeholder="e.g. Mumbai" oninput="save('city',this.value)"></div>
-        <div class="field"><label>State</label><select id="state" onchange="save('state',this.value)">
-          <option value="">Select</option><option>Andhra Pradesh</option><option>Delhi</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Punjab</option><option>Rajasthan</option><option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option><option>West Bengal</option><option>Other</option>
-        </select></div>
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Contact</div>
-      <div class="two-col">
-        <div class="field"><label>Phone number</label><input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" oninput="save('phone',this.value)"></div>
-        <div class="field"><label>Email address</label><input type="email" id="email" placeholder="you@email.com" oninput="save('email',this.value)"></div>
-      </div>
-    </div>`},
+  {id:'s1',eyebrow:'01 — Identity',title:'Personal details',name:'Personal details',desc:'Your name, vitals, location, and how we reach you.',
+   render(){return`<div class="subsec"><div class="subsec-label">Full name</div><div class="two-col"><div class="field"><label>First name</label><input type="text" id="firstName" placeholder="e.g. Priya" oninput="save('firstName',this.value)"></div><div class="field"><label>Last name</label><input type="text" id="lastName" placeholder="e.g. Sharma" oninput="save('lastName',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Age & pronouns</div><div class="two-col"><div class="field"><label>Age</label><input type="number" id="age" placeholder="e.g. 28" min="5" max="100" oninput="save('age',this.value)"></div><div class="field"><label>Pronouns</label><select id="pronouns" onchange="save('pronouns',this.value)"><option value="">Select</option><option>She / her</option><option>He / him</option><option>They / them</option><option>She / they</option><option>He / they</option><option>Any / all</option><option>Prefer not to say</option></select></div></div></div><div class="subsec"><div class="subsec-label">Physical</div><div class="two-col"><div class="field"><label>Height (cm)</label><input type="number" id="height" placeholder="e.g. 165" min="100" max="230" oninput="save('height',this.value)"></div><div class="field"><label>Weight (kg) — optional</label><input type="number" id="weight" placeholder="e.g. 60" oninput="save('weight',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Location</div><div class="two-col"><div class="field"><label>City</label><input type="text" id="city" placeholder="e.g. Mumbai" oninput="save('city',this.value)"></div><div class="field"><label>State</label><select id="state" onchange="save('state',this.value)"><option value="">Select</option><option>Andhra Pradesh</option><option>Delhi</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Punjab</option><option>Rajasthan</option><option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option><option>West Bengal</option><option>Other</option></select></div></div></div><div class="subsec"><div class="subsec-label">Contact</div><div class="two-col"><div class="field"><label>Phone number</label><input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" oninput="save('phone',this.value)"></div><div class="field"><label>Email address</label><input type="email" id="email" placeholder="you@email.com" oninput="save('email',this.value)"></div></div></div>`},
    restore(){['firstName','lastName','age','height','weight','city','phone','email'].forEach(restoreInput);restoreSelect('pronouns');restoreSelect('state')}
   },
-  {id:'s2',eyebrow:'02 — Overview',title:'At a glance',name:'At a glance',
-   desc:'Your experience level, mediums you work in, and languages you speak.',
-   render(){return`
-    <div class="subsec"><div class="subsec-label">Overall industry experience</div><div class="radio-row" id="exp-radio"></div></div>
-    <div class="subsec"><div class="subsec-label">Primary medium of work</div>
-      <div class="check-grid" id="medium-check"></div>
-      <div class="cond" id="medium-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="mediumOther" placeholder="e.g. Radio..." oninput="save('mediumOther',this.value)"></div></div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Indian languages spoken</div>
-      <div class="check-grid" id="lang-check"></div>
-      <div class="cond" id="lang-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="langOther" placeholder="e.g. Tulu, Konkani..." oninput="save('langOther',this.value)"></div></div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Foreign languages spoken</div>
-      <div class="check-grid" id="foreign-check"></div>
-      <div class="cond" id="foreign-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="foreignOther" placeholder="e.g. Arabic, Japanese..." oninput="save('foreignOther',this.value)"></div></div>
-    </div>`},
-   init(){
-    makeRadio('exp-radio',['Beginner (0–1 yr)','Emerging (1–3 yrs)','Mid-level (3–6 yrs)','Experienced (6–10 yrs)','Veteran (10+ yrs)'],'experience');
-    makeChecks('medium-check',['Films (Hindi)','Films (Regional)','Web series (OTT)','Short films','Television serials','Theatre','Street plays / Nukkad Natak','Ad films / TVC','Music videos','Corporate films','Documentaries','Voice-over / dubbing','Other'],'medium','Other','medium-other-cond');
-    makeChecks('lang-check',['Hindi','Bengali','Marathi','Tamil','Telugu','Kannada','Malayalam','Gujarati','Punjabi','Urdu','Odia','Assamese','Other'],'lang','Other','lang-other-cond');
-    makeChecks('foreign-check',['English','French','German','Spanish','Italian','Mandarin','Japanese','Russian','Arabic','Portuguese','Other'],'foreign','Other','foreign-other-cond');
-    restoreInput('mediumOther');restoreInput('langOther');restoreInput('foreignOther');
-   }
+  {id:'s2',eyebrow:'02 — Overview',title:'At a glance',name:'At a glance',desc:'Your experience level, mediums you work in, and languages you speak.',
+   render(){return`<div class="subsec"><div class="subsec-label">Overall industry experience</div><div class="radio-row" id="exp-radio"></div></div><div class="subsec"><div class="subsec-label">Primary medium of work</div><div class="check-grid" id="medium-check"></div><div class="cond" id="medium-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="mediumOther" placeholder="e.g. Radio..." oninput="save('mediumOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Indian languages spoken</div><div class="check-grid" id="lang-check"></div><div class="cond" id="lang-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="langOther" placeholder="e.g. Tulu, Konkani..." oninput="save('langOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Foreign languages spoken</div><div class="check-grid" id="foreign-check"></div><div class="cond" id="foreign-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="foreignOther" placeholder="e.g. Arabic, Japanese..." oninput="save('foreignOther',this.value)"></div></div></div>`},
+   init(){makeRadio('exp-radio',['Beginner (0–1 yr)','Emerging (1–3 yrs)','Mid-level (3–6 yrs)','Experienced (6–10 yrs)','Veteran (10+ yrs)'],'experience');makeChecks('medium-check',['Films (Hindi)','Films (Regional)','Web series (OTT)','Short films','Television serials','Theatre','Street plays / Nukkad Natak','Ad films / TVC','Music videos','Corporate films','Documentaries','Voice-over / dubbing','Other'],'medium','Other','medium-other-cond');makeChecks('lang-check',['Hindi','Bengali','Marathi','Tamil','Telugu','Kannada','Malayalam','Gujarati','Punjabi','Urdu','Odia','Assamese','Other'],'lang','Other','lang-other-cond');makeChecks('foreign-check',['English','French','German','Spanish','Italian','Mandarin','Japanese','Russian','Arabic','Portuguese','Other'],'foreign','Other','foreign-other-cond');restoreInput('mediumOther');restoreInput('langOther');restoreInput('foreignOther')}
   },
-  {id:'s3',eyebrow:'03 — Skills',title:'Skills & performance',name:'Skills',
-   desc:'Dance, voice, vehicles, and everything else you bring to a role.',
-   render(){return`
-    <div class="subsec"><div class="subsec-label">Dance</div>
-      <div class="field">
-        <label>Which dance styles can you perform?</label>
-        <div class="field-hint">e.g. Bharatnatyam, Kathak, Hip-hop, Contemporary, Salsa, Folk...</div>
-        <input type="text" id="dance" placeholder="Type your dance styles" oninput="save('dance',this.value)" style="margin-top:7px">
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Music & voice</div>
-      <div class="check-grid" id="music-check"></div>
-      <div class="cond" id="music-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="musicOther" placeholder="e.g. Violin, Rap..." oninput="save('musicOther',this.value)"></div></div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Vehicles you can drive</div>
-      <div class="check-grid" id="vehicle-check"></div>
-      <div class="cond" id="vehicle-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="vehicleOther" placeholder="e.g. Tractor, Boat..." oninput="save('vehicleOther',this.value)"></div></div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Other skills</div>
-      <div class="check-grid" id="otherskill-check"></div>
-      <div class="cond" id="otherskill-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="otherskillOther" placeholder="e.g. Juggling..." oninput="save('otherskillOther',this.value)"></div></div>
-      <div style="margin-top:14px">
-        <div class="field-hint" style="margin-bottom:8px">Any additional skills not listed above?</div>
-        <div class="tag-list" id="custom-skills-list"></div>
-        <div class="tag-add-row"><input type="text" id="custom-skill-input" placeholder="e.g. Calligraphy..."><button class="btn-add" onclick="addTag('custom-skill-input','custom-skills-list','customSkills')">+ Add</button></div>
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Teaching & coaching</div>
-      <div class="field-hint" style="margin-bottom:10px">What do you teach or coach?</div>
-      <div class="check-grid" id="teaching-check"></div>
-      <div class="cond" id="teaching-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="teachingOther" placeholder="e.g. Music, Yoga..." oninput="save('teachingOther',this.value)"></div></div>
-    </div>`},
-   init(){
-    makeChecks('music-check',['Trained singer','Playback singing','Voice acting','Dubbing','Other'],'music','Other','music-other-cond');
-    makeChecks('vehicle-check',['Two-wheeler','Car','Auto-rickshaw','Truck / heavy vehicle','Other'],'vehicle','Other','vehicle-other-cond');
-    makeChecks('otherskill-check',['Mimicry','Stand-up comedy','Improv','Magic / illusion','Acrobatics','Horse riding','Stunts','Other'],'otherskill','Other','otherskill-other-cond');
-    makeChecks('teaching-check',['Acting','Dance','Singing / music','Drama (school)','Choreography','Voice & diction','Screen acting','Stage craft','Other'],'teaching','Other','teaching-other-cond');
-    restoreInput('dance');restoreInput('musicOther');restoreInput('vehicleOther');restoreInput('otherskillOther');restoreInput('teachingOther');
-    restoreTags('custom-skills-list','customSkills');
-   }
+  {id:'s3',eyebrow:'03 — Skills',title:'Skills & performance',name:'Skills',desc:'Dance, voice, vehicles, and everything else you bring to a role.',
+   render(){return`<div class="subsec"><div class="subsec-label">Dance</div><div class="field"><label>Which dance styles can you perform?</label><div class="field-hint">e.g. Bharatnatyam, Kathak, Hip-hop, Contemporary, Salsa, Folk...</div><input type="text" id="dance" placeholder="Type your dance styles" oninput="save('dance',this.value)" style="margin-top:7px"></div></div><div class="subsec"><div class="subsec-label">Music & voice</div><div class="check-grid" id="music-check"></div><div class="cond" id="music-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="musicOther" placeholder="e.g. Violin, Rap..." oninput="save('musicOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Vehicles you can drive</div><div class="check-grid" id="vehicle-check"></div><div class="cond" id="vehicle-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="vehicleOther" placeholder="e.g. Tractor, Boat..." oninput="save('vehicleOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Other skills</div><div class="check-grid" id="otherskill-check"></div><div class="cond" id="otherskill-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="otherskillOther" placeholder="e.g. Juggling..." oninput="save('otherskillOther',this.value)"></div></div><div style="margin-top:14px"><div class="field-hint" style="margin-bottom:8px">Any additional skills not listed above?</div><div class="tag-list" id="custom-skills-list"></div><div class="tag-add-row"><input type="text" id="custom-skill-input" placeholder="e.g. Calligraphy..."><button class="btn-add" onclick="addTag('custom-skill-input','custom-skills-list','customSkills')">+ Add</button></div></div></div><div class="subsec"><div class="subsec-label">Teaching & coaching</div><div class="field-hint" style="margin-bottom:10px">What do you teach or coach?</div><div class="check-grid" id="teaching-check"></div><div class="cond" id="teaching-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="teachingOther" placeholder="e.g. Music, Yoga..." oninput="save('teachingOther',this.value)"></div></div></div>`},
+   init(){makeChecks('music-check',['Trained singer','Playback singing','Voice acting','Dubbing','Other'],'music','Other','music-other-cond');makeChecks('vehicle-check',['Two-wheeler','Car','Auto-rickshaw','Truck / heavy vehicle','Other'],'vehicle','Other','vehicle-other-cond');makeChecks('otherskill-check',['Mimicry','Stand-up comedy','Improv','Magic / illusion','Acrobatics','Horse riding','Stunts','Other'],'otherskill','Other','otherskill-other-cond');makeChecks('teaching-check',['Acting','Dance','Singing / music','Drama (school)','Choreography','Voice & diction','Screen acting','Stage craft','Other'],'teaching','Other','teaching-other-cond');restoreInput('dance');restoreInput('musicOther');restoreInput('vehicleOther');restoreInput('otherskillOther');restoreInput('teachingOther');restoreTags('custom-skills-list','customSkills')}
   },
-  {id:'s4',eyebrow:'04 — Experience',title:'Work experience',name:'Experience',
-   desc:'Roles behind the scenes, theatre groups, and recognition received.',
-   render(){return`
-    <div class="subsec"><div class="subsec-label">Also worked as</div>
-      <div class="field-hint" style="margin-bottom:10px">Roles behind the camera or off-stage</div>
-      <div class="check-grid" id="also-check"></div>
-      <div class="cond" id="also-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="alsoOther" placeholder="e.g. Producer..." oninput="save('alsoOther',this.value)"></div></div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Theatre associations</div>
-      <div class="field-hint" style="margin-bottom:8px">Groups or troupes you have worked with or performed in</div>
-      <div class="tag-list" id="theatre-list"></div>
-      <div class="tag-add-row"><input type="text" id="theatre-input" placeholder="e.g. Prithvi Theatre..."><button class="btn-add" onclick="addTag('theatre-input','theatre-list','theatreGroups')">+ Add</button></div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Certifications & awards</div>
-      <div class="field-hint" style="margin-bottom:8px">Certificates, awards, or recognitions received</div>
-      <div class="tag-list" id="cert-list"></div>
-      <div class="tag-add-row"><input type="text" id="cert-input" placeholder="e.g. Best Actor — Prithvi Festival 2022..."><button class="btn-add" onclick="addTag('cert-input','cert-list','certifications')">+ Add</button></div>
-    </div>`},
-   init(){
-    makeChecks('also-check',['Assistant Director (AD)','Production intern','Choreographer','Casting coordinator','Script supervisor','Production designer','Costume stylist','Makeup artist','Behind-camera crew','Dance teacher','Acting coach','Other'],'also','Other','also-other-cond');
-    restoreInput('alsoOther');restoreTags('theatre-list','theatreGroups');restoreTags('cert-list','certifications');
-   }
+  {id:'s4',eyebrow:'04 — Experience',title:'Work experience',name:'Experience',desc:'Roles behind the scenes, theatre groups, and recognition received.',
+   render(){return`<div class="subsec"><div class="subsec-label">Also worked as</div><div class="field-hint" style="margin-bottom:10px">Roles behind the camera or off-stage</div><div class="check-grid" id="also-check"></div><div class="cond" id="also-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="alsoOther" placeholder="e.g. Producer..." oninput="save('alsoOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Theatre associations</div><div class="field-hint" style="margin-bottom:8px">Groups or troupes you have worked with or performed in</div><div class="tag-list" id="theatre-list"></div><div class="tag-add-row"><input type="text" id="theatre-input" placeholder="e.g. Prithvi Theatre..."><button class="btn-add" onclick="addTag('theatre-input','theatre-list','theatreGroups')">+ Add</button></div></div><div class="subsec"><div class="subsec-label">Certifications & awards</div><div class="field-hint" style="margin-bottom:8px">Certificates, awards, or recognitions received</div><div class="tag-list" id="cert-list"></div><div class="tag-add-row"><input type="text" id="cert-input" placeholder="e.g. Best Actor — Prithvi Festival 2022..."><button class="btn-add" onclick="addTag('cert-input','cert-list','certifications')">+ Add</button></div></div>`},
+   init(){makeChecks('also-check',['Assistant Director (AD)','Production intern','Choreographer','Casting coordinator','Script supervisor','Production designer','Costume stylist','Makeup artist','Behind-camera crew','Dance teacher','Acting coach','Other'],'also','Other','also-other-cond');restoreInput('alsoOther');restoreTags('theatre-list','theatreGroups');restoreTags('cert-list','certifications')}
   },
-  {id:'s5',eyebrow:'05 — Training',title:'Education & training',name:'Training',
-   desc:'Academic background, where you trained, and workshops attended.',
-   render(){return`
-    <div class="subsec"><div class="subsec-label">Formal education</div>
-      <div class="two-col">
-        <div class="field"><label>Highest qualification</label><select id="qualification" onchange="save('qualification',this.value)">
-          <option value="">Select</option><option>Secondary school (Class 10)</option><option>Higher secondary (Class 12)</option><option>Diploma</option><option>Bachelor's degree</option><option>Master's degree</option><option>PhD / Doctoral</option><option>Other</option>
-        </select></div>
-        <div class="field"><label>Stream / subject area</label><select id="stream" onchange="save('stream',this.value)">
-          <option value="">Select</option><option>Performing arts</option><option>Fine arts</option><option>Film studies</option><option>Mass communication</option><option>Literature / humanities</option><option>Science</option><option>Commerce</option><option>Engineering</option><option>Other</option>
-        </select></div>
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Acting & performance training</div>
-      <div class="field">
-        <label>Where did you train?</label>
-        <div class="field-hint">e.g. NSD, FTII, Barry John Acting Studio, online course...</div>
-        <input type="text" id="training" placeholder="Name of school, institute, or trainer" oninput="save('training',this.value)" style="margin-top:7px">
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Workshops attended</div>
-      <div class="field">
-        <label>Which types of workshops have you attended?</label>
-        <div class="field-hint">e.g. voice & diction, audition technique, screen acting, movement...</div>
-        <input type="text" id="workshops" placeholder="List workshop types" oninput="save('workshops',this.value)" style="margin-top:7px">
-      </div>
-    </div>`},
+  {id:'s5',eyebrow:'05 — Training',title:'Education & training',name:'Training',desc:'Academic background, where you trained, and workshops attended.',
+   render(){return`<div class="subsec"><div class="subsec-label">Formal education</div><div class="two-col"><div class="field"><label>Highest qualification</label><select id="qualification" onchange="save('qualification',this.value)"><option value="">Select</option><option>Secondary school (Class 10)</option><option>Higher secondary (Class 12)</option><option>Diploma</option><option>Bachelor's degree</option><option>Master's degree</option><option>PhD / Doctoral</option><option>Other</option></select></div><div class="field"><label>Stream / subject area</label><select id="stream" onchange="save('stream',this.value)"><option value="">Select</option><option>Performing arts</option><option>Fine arts</option><option>Film studies</option><option>Mass communication</option><option>Literature / humanities</option><option>Science</option><option>Commerce</option><option>Engineering</option><option>Other</option></select></div></div></div><div class="subsec"><div class="subsec-label">Acting & performance training</div><div class="field"><label>Where did you train?</label><div class="field-hint">e.g. NSD, FTII, Barry John Acting Studio, online course...</div><input type="text" id="training" placeholder="Name of school, institute, or trainer" oninput="save('training',this.value)" style="margin-top:7px"></div></div><div class="subsec"><div class="subsec-label">Workshops attended</div><div class="field"><label>Which types of workshops have you attended?</label><div class="field-hint">e.g. voice & diction, audition technique, screen acting, movement...</div><input type="text" id="workshops" placeholder="List workshop types" oninput="save('workshops',this.value)" style="margin-top:7px"></div></div>`},
    restore(){restoreSelect('qualification');restoreSelect('stream');restoreInput('training');restoreInput('workshops')}
   },
-  {id:'s6',eyebrow:'06 — Online',title:'Online presence',name:'Online',
-   desc:'Your social media profiles and any other links to share.',
-   render(){return`
-    <div class="subsec"><div class="subsec-label">Social & professional profiles</div>
-      <div class="field-hint" style="margin-bottom:12px">Enter the full URL for each profile you have</div>
-      <div class="two-col">
-        <div class="field"><label>Instagram</label><input type="url" id="instagram" placeholder="https://instagram.com/..." oninput="save('instagram',this.value)"></div>
-        <div class="field"><label>YouTube</label><input type="url" id="youtube" placeholder="https://youtube.com/..." oninput="save('youtube',this.value)"></div>
-        <div class="field"><label>IMDb</label><input type="url" id="imdb" placeholder="https://imdb.com/name/..." oninput="save('imdb',this.value)"></div>
-        <div class="field"><label>LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/..." oninput="save('linkedin',this.value)"></div>
-        <div class="field"><label>Facebook</label><input type="url" id="facebook" placeholder="https://facebook.com/..." oninput="save('facebook',this.value)"></div>
-        <div class="field"><label>Personal website</label><input type="url" id="website" placeholder="https://yourname.com" oninput="save('website',this.value)"></div>
-      </div>
-    </div>
-    <div class="subsec"><div class="subsec-label">Other profile links</div>
-      <div class="field-hint" style="margin-bottom:8px">Casting sites, portfolio pages, or any other links</div>
-      <div class="tag-list" id="other-links-list"></div>
-      <div class="tag-add-row"><input type="url" id="other-link-input" placeholder="https://..."><button class="btn-add" onclick="addTag('other-link-input','other-links-list','otherLinks')">+ Add</button></div>
-    </div>`},
+  {id:'s6',eyebrow:'06 — Online',title:'Online presence',name:'Online',desc:'Your social media profiles and any other links to share.',
+   render(){return`<div class="subsec"><div class="subsec-label">Social & professional profiles</div><div class="field-hint" style="margin-bottom:12px">Enter the full URL for each profile you have</div><div class="two-col"><div class="field"><label>Instagram</label><input type="url" id="instagram" placeholder="https://instagram.com/..." oninput="save('instagram',this.value)"></div><div class="field"><label>YouTube</label><input type="url" id="youtube" placeholder="https://youtube.com/..." oninput="save('youtube',this.value)"></div><div class="field"><label>IMDb</label><input type="url" id="imdb" placeholder="https://imdb.com/name/..." oninput="save('imdb',this.value)"></div><div class="field"><label>LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/..." oninput="save('linkedin',this.value)"></div><div class="field"><label>Facebook</label><input type="url" id="facebook" placeholder="https://facebook.com/..." oninput="save('facebook',this.value)"></div><div class="field"><label>Personal website</label><input type="url" id="website" placeholder="https://yourname.com" oninput="save('website',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Other profile links</div><div class="field-hint" style="margin-bottom:8px">Casting sites, portfolio pages, or any other links</div><div class="tag-list" id="other-links-list"></div><div class="tag-add-row"><input type="url" id="other-link-input" placeholder="https://..."><button class="btn-add" onclick="addTag('other-link-input','other-links-list','otherLinks')">+ Add</button></div></div>`},
    restore(){['instagram','youtube','imdb','linkedin','facebook','website'].forEach(restoreInput);restoreTags('other-links-list','otherLinks')}
   },
-  {id:'s7',eyebrow:'07 — Memberships',title:'Union & guild membership',name:'Memberships',
-   desc:'Any industry unions or guilds you are a member of.',
-   render(){return`
-    <div class="subsec"><div class="subsec-label">Memberships</div>
-      <div class="check-grid" id="union-check"></div>
-      <div class="cond" id="union-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="unionOther" placeholder="e.g. Film Writers' Association..." oninput="save('unionOther',this.value)"></div></div>
-    </div>`},
-   init(){
-    makeChecks('union-check',["CINTAA (Cine & TV Artists' Association)","IPTA (Indian People's Theatre Association)",'Film Writers\' Association','None','Other'],'union','Other','union-other-cond');
-    restoreInput('unionOther');
-   }
+  {id:'s7',eyebrow:'07 — Memberships',title:'Union & guild membership',name:'Memberships',desc:'Any industry unions or guilds you are a member of.',
+   render(){return`<div class="subsec"><div class="subsec-label">Memberships</div><div class="check-grid" id="union-check"></div><div class="cond" id="union-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="unionOther" placeholder="e.g. Film Writers' Association..." oninput="save('unionOther',this.value)"></div></div></div>`},
+   init(){makeChecks('union-check',["CINTAA (Cine & TV Artists' Association)","IPTA (Indian People's Theatre Association)","Film Writers' Association",'None','Other'],'union','Other','union-other-cond');restoreInput('unionOther')}
   }
 ];
 
 function save(k,v){data[k]=v}
 function restoreInput(id){const el=document.getElementById(id);if(el&&data[id])el.value=data[id]}
 function restoreSelect(id){const el=document.getElementById(id);if(el&&data[id])el.value=data[id]}
-function restoreTags(listId,key){
-  if(!data[key]||!data[key].length)return;
-  const list=document.getElementById(listId);if(!list)return;
-  list.innerHTML='';data[key].forEach(v=>appendTag(list,v,key));
-}
-function makeRadio(cid,opts,key){
-  const el=document.getElementById(cid);if(!el)return;
-  el.innerHTML=opts.map(o=>`<span class="radio-pill${data[key]===o?' selected':''}" onclick="pickRadio(this,'${key}')">${o}</span>`).join('');
-}
-function pickRadio(el,key){
-  el.closest('.radio-row').querySelectorAll('.radio-pill').forEach(p=>p.classList.remove('selected'));
-  el.classList.add('selected');data[key]=el.textContent;
-}
-function makeChecks(cid,opts,key,otherVal,condId){
-  const el=document.getElementById(cid);if(!el)return;
-  const saved=data[key]||[];
-  el.innerHTML=opts.map(o=>{const checked=saved.includes(o);return`<label class="check-item${checked?' checked':''}"><input type="checkbox" ${checked?'checked':''} onchange="toggleCheck(this,'${key}','${o}','${otherVal}','${condId}')"> ${o}</label>`}).join('');
-  if(otherVal&&condId){const c=document.getElementById(condId);if(c)c.classList.toggle('show',saved.includes(otherVal))}
-}
-function toggleCheck(cb,key,val,otherVal,condId){
-  if(!data[key])data[key]=[];
-  if(cb.checked){if(!data[key].includes(val))data[key].push(val);cb.parentElement.classList.add('checked')}
-  else{data[key]=data[key].filter(v=>v!==val);cb.parentElement.classList.remove('checked')}
-  if(val===otherVal&&condId){const c=document.getElementById(condId);if(c)c.classList.toggle('show',cb.checked)}
-}
-function appendTag(listEl,val,key){
-  const tag=document.createElement('span');tag.className='tag';
-  tag.innerHTML=`${val}<span class="tag-remove" onclick="removeTag(this,'${key}')">×</span>`;
-  listEl.appendChild(tag);
-}
-function addTag(inputId,listId,key){
-  const inp=document.getElementById(inputId);const list=document.getElementById(listId);
-  const val=inp.value.trim();if(!val)return;
-  if(!data[key])data[key]=[];data[key].push(val);appendTag(list,val,key);inp.value='';
-}
-function removeTag(span,key){
-  const tagEl=span.parentElement;const val=tagEl.textContent.slice(0,-1).trim();
-  if(data[key])data[key]=data[key].filter(v=>v!==val);tagEl.remove();
-}
+function restoreTags(lid,key){if(!data[key]||!data[key].length)return;const l=document.getElementById(lid);if(!l)return;l.innerHTML='';data[key].forEach(v=>appendTag(l,v,key))}
+function makeRadio(cid,opts,key){const el=document.getElementById(cid);if(!el)return;el.innerHTML=opts.map(o=>`<span class="radio-pill${data[key]===o?' selected':''}" onclick="pickRadio(this,'${key}')">${o}</span>`).join('')}
+function pickRadio(el,key){el.closest('.radio-row').querySelectorAll('.radio-pill').forEach(p=>p.classList.remove('selected'));el.classList.add('selected');data[key]=el.textContent}
+function makeChecks(cid,opts,key,ov,cid2){const el=document.getElementById(cid);if(!el)return;const sv=data[key]||[];el.innerHTML=opts.map(o=>{const ch=sv.includes(o);return`<label class="check-item${ch?' checked':''}"><input type="checkbox" ${ch?'checked':''} onchange="toggleCheck(this,'${key}','${o}','${ov}','${cid2}')"> ${o}</label>`}).join('');if(ov&&cid2){const c=document.getElementById(cid2);if(c)c.classList.toggle('show',sv.includes(ov))}}
+function toggleCheck(cb,key,val,ov,cid2){if(!data[key])data[key]=[];if(cb.checked){if(!data[key].includes(val))data[key].push(val);cb.parentElement.classList.add('checked')}else{data[key]=data[key].filter(v=>v!==val);cb.parentElement.classList.remove('checked')}if(val===ov&&cid2){const c=document.getElementById(cid2);if(c)c.classList.toggle('show',cb.checked)}}
+function appendTag(le,val,key){const t=document.createElement('span');t.className='tag';t.innerHTML=`${val}<span class="tag-remove" onclick="removeTag(this,'${key}')">×</span>`;le.appendChild(t)}
+function addTag(iid,lid,key){const i=document.getElementById(iid);const l=document.getElementById(lid);const v=i.value.trim();if(!v)return;if(!data[key])data[key]=[];data[key].push(v);appendTag(l,v,key);i.value=''}
+function removeTag(sp,key){const t=sp.parentElement;const v=t.textContent.slice(0,-1).trim();if(data[key])data[key]=data[key].filter(x=>x!==v);t.remove()}
 
 function showSection(idx){
   const s=sections[idx];
   document.getElementById('form-container').style.display='block';
   document.getElementById('success-screen').style.display='none';
-  document.getElementById('form-container').innerHTML=`
-    <div class="section-eyebrow2">${s.eyebrow}</div>
-    <div class="section-title2">${s.title}</div>
-    <div class="section-desc2">${s.desc}</div>
-    ${s.render()}
-    <div class="nav-row">
-      <button class="btn-nav" onclick="navigate(-1)" ${idx===0?'disabled':''}>← Back</button>
-      <button class="btn-nav primary" onclick="navigate(1)">${idx===TOTAL-1?'Submit':'Next →'}</button>
-    </div>`;
-  if(s.init)s.init();
-  if(s.restore)s.restore();
-  document.getElementById('form-progress-bar').style.width=((idx+1)/TOTAL*100)+'%';
+  document.getElementById('form-container').innerHTML=`<div class="feyebrow">${s.eyebrow}</div><div class="ftitle">${s.title}</div><div class="fdesc">${s.desc}</div>${s.render()}<div class="nav-row"><button class="btn-nav" onclick="navigate(-1)" ${idx===0?'disabled':''}>← Back</button><button class="btn-nav primary" onclick="navigate(1)">${idx===TOTAL-1?'Submit':'Next →'}</button></div>`;
+  if(s.init)s.init();if(s.restore)s.restore();
+  document.getElementById('fpb').style.width=((idx+1)/TOTAL*100)+'%';
   document.getElementById('form-step-label').textContent=`Step ${idx+1} of ${TOTAL}`;
   document.getElementById('form-section-name').textContent=s.name;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function navigate(dir){
-  const next=cur+dir;
-  if(next<0)return;
-  if(next>=TOTAL){
-    document.getElementById('form-container').style.display='none';
-    document.getElementById('success-screen').style.display='block';
-    document.getElementById('form-progress-bar').style.width='100%';
-    document.getElementById('form-step-label').textContent='Complete';
-    document.getElementById('form-section-name').textContent='Done';
-    window.scrollTo({top:0,behavior:'smooth'});return;
-  }
+  const next=cur+dir;if(next<0)return;
+  if(next>=TOTAL){document.getElementById('form-container').style.display='none';document.getElementById('success-screen').style.display='block';document.getElementById('fpb').style.width='100%';document.getElementById('form-step-label').textContent='Complete';document.getElementById('form-section-name').textContent='Done';window.scrollTo({top:0,behavior:'smooth'});return}
   cur=next;showSection(cur);
 }
 
 function generatePDF(){
-  const{jsPDF}=window.jspdf;
-  const doc=new jsPDF({unit:'mm',format:'a4'});
-  const W=210,ml=20,mr=20,contentW=W-ml-mr;
-  let y=22;const pageH=297,bm=22;
-  function cp(n){if(y+n>pageH-bm){doc.addPage();y=22}}
+  const{jsPDF}=window.jspdf;const doc=new jsPDF({unit:'mm',format:'a4'});
+  const W=210,ml=20,mr=20,cW=W-ml-mr;let y=22;const pH=297,bm=22;
+  function cp(n){if(y+n>pH-bm){doc.addPage();y=22}}
   function hr(c){doc.setDrawColor(...c);doc.setLineWidth(0.3);doc.line(ml,y,W-mr,y);y+=5}
   const fn=((data.firstName||'')+' '+(data.lastName||'')).trim()||'Actor Portfolio';
   doc.setFont('helvetica','bold');doc.setFontSize(24);doc.setTextColor(26,10,46);doc.text(fn,ml,y);y+=7;hr([124,58,237]);y+=2;
-  function qa(q,a){
-    if(!a||a===''||(Array.isArray(a)&&a.length===0))return;
-    const as=Array.isArray(a)?a.join(', '):String(a);
-    cp(14);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(124,106,154);doc.text(q.toUpperCase(),ml,y);y+=4;
-    doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(42,18,62);
-    doc.splitTextToSize(as,contentW).forEach(l=>{cp(6);doc.text(l,ml,y);y+=5.5});y+=2;
-  }
+  function qa(q,a){if(!a||a===''||(Array.isArray(a)&&a.length===0))return;const as=Array.isArray(a)?a.join(', '):String(a);cp(14);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(124,106,154);doc.text(q.toUpperCase(),ml,y);y+=4;doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(42,18,62);doc.splitTextToSize(as,cW).forEach(l=>{cp(6);doc.text(l,ml,y);y+=5.5});y+=2}
   function sh(t){cp(18);y+=4;doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(124,58,237);doc.text(t,ml,y);y+=4;hr([221,213,245])}
   sh('Personal details');qa('First name',data.firstName);qa('Last name',data.lastName);qa('Age',data.age);qa('Pronouns',data.pronouns);qa('Height (cm)',data.height);qa('Weight (kg)',data.weight);qa('City',data.city);qa('State',data.state);qa('Phone',data.phone);qa('Email',data.email);
   sh('At a glance');qa('Industry experience',data.experience);qa('Primary medium',data.medium);if(data.medium&&data.medium.includes('Other'))qa('Medium (other)',data.mediumOther);qa('Indian languages',data.lang);if(data.lang&&data.lang.includes('Other'))qa('Language (other)',data.langOther);qa('Foreign languages',data.foreign);if(data.foreign&&data.foreign.includes('Other'))qa('Foreign language (other)',data.foreignOther);
@@ -974,12 +535,4 @@ function generatePDF(){
   sh('Work experience');qa('Also worked as',data.also);if(data.also&&data.also.includes('Other'))qa('Also worked as (other)',data.alsoOther);qa('Theatre associations',data.theatreGroups);qa('Certifications & awards',data.certifications);
   sh('Education & training');qa('Highest qualification',data.qualification);qa('Stream',data.stream);qa('Training',data.training);qa('Workshops',data.workshops);
   sh('Online presence');qa('Instagram',data.instagram);qa('YouTube',data.youtube);qa('IMDb',data.imdb);qa('LinkedIn',data.linkedin);qa('Facebook',data.facebook);qa('Website',data.website);qa('Other links',data.otherLinks);
-  sh('Union & guild membership');qa('Memberships',data.union);if(data.union&&data.union.includes('Other'))qa('Membership (other)',data.unionOther);
-  const tp=doc.internal.getNumberOfPages();
-  for(let i=1;i<=tp;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(180,170,200);doc.text(`Arc Portfolio — ${fn}`,ml,pageH-10);doc.text(`${i} / ${tp}`,W-mr,pageH-10,{align:'right'})}
-  const sn=fn.replace(/\s+/g,'_').replace(/[^a-zA-Z0-9_]/g,'')||'Actor';
-  doc.save(`ActorPortfolio_${sn}.pdf`);
-}
-</script>
-</body>
-</html>
+  sh('Union & guild membership');qa('Memberships',data.union);if(data.union&&data.union.includes('Other'))qa('Membership (other)',data.un
