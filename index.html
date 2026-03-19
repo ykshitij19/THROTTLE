@@ -6,7 +6,7 @@
 <title>Arc — Actor Portfolio Websites</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -93,22 +93,8 @@ h2.section-h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7r
 .contact-item-icon{width:30px;height:30px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .contact-note{font-size:13px;color:var(--faint);font-weight:300;margin-top:1.25rem;line-height:1.65}
 
-/* EARLY ADOPTER BAND */
-#early{background:var(--text);padding:5.5rem 1.5rem;text-align:center;position:relative;overflow:hidden}
-#early::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.18) 0%,transparent 70%);pointer-events:none}
-.early-inner{max-width:560px;margin:0 auto;position:relative;z-index:1}
-.early-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.25);border:1px solid rgba(168,85,247,0.35);border-radius:999px;padding:5px 16px;margin-bottom:1.5rem}
-.early-badge-dot{width:6px;height:6px;border-radius:50%;background:#A855F7;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.early-badge-text{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C4A8F0}
-.early-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);color:#EEEAE3;letter-spacing:-.025em;line-height:1.1;margin-bottom:1rem}
-.early-h em{font-style:normal;color:#A855F7}
-.early-sub{font-size:14px;color:rgba(200,196,188,0.65);font-weight:300;line-height:1.8;margin-bottom:.6rem;max-width:440px;margin-left:auto;margin-right:auto}
-.early-sub2{font-size:13px;color:rgba(200,196,188,0.38);font-weight:300;line-height:1.7;margin-bottom:2.25rem;font-style:italic}
-.early-disclaimer{font-size:11px;color:rgba(200,196,188,0.3);margin-top:1.25rem;font-weight:300;line-height:1.6}
-
 /* FOOTER */
-footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-top:1px solid rgba(124,58,237,0.15)}
+footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center}
 .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#EDE5FF;letter-spacing:-.02em;margin-bottom:.35rem}
 .footer-sub{font-size:12px;color:rgba(237,229,255,0.28);font-weight:300}
 
@@ -210,7 +196,7 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
   </a>
   <div class="nav-links">
     <a href="#how">How it works</a>
-    <a href="#early">Introductory offer</a>
+    <a href="#features">What we cover</a>
     <a href="#contact">Contact</a>
   </div>
   <button class="nav-cta" onclick="showForm()">Get started →</button>
@@ -227,9 +213,9 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
       </svg>
     </div>
     <div class="hero-content">
-      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>New &nbsp;·&nbsp; Actor Portfolio Websites</div>
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Actor Portfolio Websites</div>
       <h1 class="hero-h1">Your craft deserves<br>a <em>proper stage.</em></h1>
-      <p class="hero-sub">We design and build portfolio websites for actors. Bring the talent and the story — we'll make sure it looks the part.</p>
+      <p class="hero-sub">We build polished, professional portfolio websites for actors — so everything a casting director needs to know about you is in one place.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="showForm()">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -244,8 +230,8 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
   <section id="how">
     <div class="section-inner">
       <div class="section-eyebrow">How it works</div>
-      <h2 class="section-h2">Straightforward process.</h2>
-      <p class="section-lead">Fill in the details. We take care of the design, build, and delivery.</p>
+      <h2 class="section-h2">From form to live website</h2>
+      <p class="section-lead">A straightforward process — you provide the information, we handle everything else.</p>
 
       <div class="steps-list" style="margin-top:3rem;max-width:600px">
 
@@ -256,7 +242,7 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
           </div>
           <div class="step-body">
             <div class="step-title">Fill the form</div>
-            <div class="step-desc">Questions about skills, experience, training, and online presence. All tick-boxes and dropdowns — no writing required. Takes about 10 minutes.</div>
+            <div class="step-desc">Answer questions about your skills, experience, training, and online presence. Everything is tick-boxes and dropdowns — no writing required. Takes about 10 minutes.</div>
           </div>
         </div>
 
@@ -267,7 +253,7 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
           </div>
           <div class="step-body">
             <div class="step-title">Download & send us the PDF</div>
-            <div class="step-desc">Answers compile into a PDF automatically. Send it to us on WhatsApp or email.</div>
+            <div class="step-desc">Your answers compile into a PDF automatically. Download it and send it to us on WhatsApp or email.</div>
           </div>
         </div>
 
@@ -278,7 +264,7 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
           </div>
           <div class="step-body">
             <div class="step-title">Briefing call</div>
-            <div class="step-desc">A short call to understand the look, feel, and tone — colours, layout, how the portfolio should come across.</div>
+            <div class="step-desc">We get on a call to understand your branding, image, and how you'd like to present yourself. From this, we decide the look, feel, colours, and layout of your portfolio.</div>
           </div>
         </div>
 
@@ -288,9 +274,9 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
             <div class="step-line"></div>
           </div>
           <div class="step-body">
-            <div class="step-title">Upload the media</div>
-            <div class="step-desc">We share a Google Drive link with clearly labelled folders — headshots, portfolio shoots, introduction video, previous work, and more.</div>
-            <div class="step-note">Folders are pre-titled so it's clear what goes where.</div>
+            <div class="step-title">Upload your media</div>
+            <div class="step-desc">We share a Google Drive link with clearly labelled folders — headshots, portfolio shoots, introduction video, previous work, and more. You upload directly into each folder.</div>
+            <div class="step-note">Folders are pre-titled so you know exactly what goes where.</div>
           </div>
         </div>
 
@@ -300,7 +286,7 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
           </div>
           <div class="step-body">
             <div class="step-title">Your portfolio goes live</div>
-            <div class="step-desc">We compile everything, build the portfolio website, and share the live link — ready to send to whoever it needs to reach.</div>
+            <div class="step-desc">We compile your information and media, build your personally branded portfolio website, and share the live link with you — ready to share with whoever you choose.</div>
           </div>
         </div>
 
@@ -308,33 +294,60 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
     </div>
   </section>
 
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-inner">
+      <div class="section-eyebrow">What we cover</div>
+      <h2 class="section-h2">Built for the Indian performing arts industry</h2>
+      <p class="section-lead">Not a generic template. Every section of your portfolio is designed around how the industry actually works.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke-linecap="round"/></svg>
+          </div>
+          <div class="feature-title">Identity & vitals</div>
+          <div class="feature-desc">Name, age, pronouns, height, weight, city — the essentials, presented clearly and professionally.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12-3c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="feature-title">Skills & performance</div>
+          <div class="feature-desc">Dance forms, vocal training, languages spoken, vehicles, special skills, and coaching experience.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9" stroke-linecap="round"/></svg>
+          </div>
+          <div class="feature-title">Experience & training</div>
+          <div class="feature-desc">Every medium covered — films, OTT, theatre, television, ad films. Plus training background, workshops, and theatre associations.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.8" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-linecap="round"/></svg>
+          </div>
+          <div class="feature-title">All your links</div>
+          <div class="feature-desc">Instagram, YouTube, IMDb, LinkedIn and more — everything in one place so you're easy to find.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA BAND -->
   <div id="cta-band">
     <div class="cta-band-inner">
-      <div class="cta-band-h">Want a portfolio?</div>
-      <div class="cta-band-sub">Start by filling the form — it takes about 10 minutes. We'll handle everything from there.</div>
+      <div class="cta-band-h">Ready to get started?</div>
+      <div class="cta-band-sub">Fill the form in about 10 minutes. We'll take care of the rest.</div>
       <button class="btn-white" onclick="showForm()">Start the form →</button>
     </div>
   </div>
-
-  <!-- EARLY ADOPTER -->
-  <section id="early">
-    <div class="early-inner">
-      <div class="early-badge"><span class="early-badge-dot"></span><span class="early-badge-text">We're just getting started</span></div>
-      <div class="early-h">Be one of the<br><em>first.</em></div>
-      <div class="early-sub">Arc is new. We come from design and film — and we believe every actor deserves a portfolio that genuinely represents their work. The first few portfolios we build come at a special introductory price.</div>
-      <div class="early-sub2">Good design, honest presentation. That's what we're here for.</div>
-      <button class="btn-primary" onclick="showForm()" style="font-size:13px;padding:14px 32px"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg> Get your portfolio</button>
-      <div class="early-disclaimer">Fill the form and send it to us — we'll be in touch with pricing and next steps.</div>
-    </div>
-  </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
       <div class="section-eyebrow" style="text-align:center">Get in touch</div>
       <h2 class="section-h2" style="text-align:center;font-size:1.7rem">Have a question?</h2>
-      <p class="section-lead" style="margin:0 auto;text-align:center;max-width:380px">Reach out on WhatsApp or email — for queries, pricing, or to send the completed PDF.</p>
+      <p class="section-lead" style="margin:0 auto;text-align:center;max-width:380px">Reach out on WhatsApp or email — for queries, pricing, or to send your completed PDF.</p>
       <div class="contact-row">
         <a class="contact-item" href="https://wa.me/919454905329" target="_blank">
           <div class="contact-item-icon">
@@ -342,21 +355,21 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
           </div>
           +91 94549 05329
         </a>
-        <a class="contact-item" href="/cdn-cgi/l/email-protection#fc978f94958895969d889d8e9fdadfcac8c79b919d9590d29f9391">
+        <a class="contact-item" href="mailto:kshitijatarc@gmail.com">
           <div class="contact-item-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
           </div>
-          kshitijatarc&#64;gmail.com
+          kshitijatarc@gmail.com
         </a>
       </div>
-      <div class="contact-note">Download the PDF after filling the form and send it to us. We'll follow up within 24 hours.</div>
+      <div class="contact-note">After filling the form, download your PDF and send it to us. We'll follow up within 24 hours.</div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">arc</div>
-    <div class="footer-sub">Actor portfolio websites · kshitijatarc&#64;gmail.com · +91 94549 05329</div>
+    <div class="footer-sub">Actor portfolio websites · kshitijatarc@gmail.com · +91 94549 05329</div>
   </footer>
 
 </div><!-- end landing -->
@@ -381,7 +394,7 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
       <div class="success-steps">
         <div class="success-step">
           <div class="success-step-num">1</div>
-          <div class="success-step-text">Click <strong>Download PDF</strong> — the completed form saves to the device.</div>
+          <div class="success-step-text">Click <strong>Download PDF</strong> — your completed form saves to your device.</div>
         </div>
         <div class="success-step">
           <div class="success-step-num">2</div>
@@ -389,7 +402,7 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
         </div>
         <div class="success-step">
           <div class="success-step-num">3</div>
-          <div class="success-step-text">We'll be in touch within <strong>24 hours</strong> to schedule a briefing call and walk through the next steps.</div>
+          <div class="success-step-text">We'll be in touch within <strong>24 hours</strong> to schedule a briefing call and walk you through the next steps.</div>
         </div>
       </div>
       <button class="btn-download" onclick="generatePDF()">
@@ -403,7 +416,7 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
             <div class="scc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
             WhatsApp
           </a>
-          <a class="scc" href="/cdn-cgi/l/email-protection#91fae2f9f8e5f8fbf0e5f0e3f2b7b2a7a5aaf6fcf0f8fdbff2fefc">
+          <a class="scc" href="mailto:kshitijatarc@gmail.com">
             <div class="scc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
             Email
           </a>
@@ -414,43 +427,22 @@ footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-to
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function showForm(){
-  var lp=document.getElementById('landing-page');
-  var fp=document.getElementById('form-page');
-  var mn=document.getElementById('main-nav');
-  if(lp)lp.style.display='none';
-  if(fp)fp.style.display='block';
-  if(mn)mn.style.display='none';
-  window.scrollTo({top:0,behavior:'smooth'});
-  showSection(0);
-}
-function backToHome(){
-  var lp=document.getElementById('landing-page');
-  var fp=document.getElementById('form-page');
-  var mn=document.getElementById('main-nav');
-  var ss=document.getElementById('success-screen');
-  var fc=document.getElementById('form-container');
-  if(fp)fp.style.display='none';
-  if(lp)lp.style.display='block';
-  if(mn)mn.style.display='flex';
-  if(ss)ss.style.display='none';
-  if(fc)fc.style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+<script>
+function showForm(){document.getElementById('landing-page').style.display='none';document.getElementById('form-page').style.display='block';document.getElementById('main-nav').style.display='none';window.scrollTo({top:0,behavior:'smooth'});showSection(0)}
+function backToHome(){document.getElementById('form-page').style.display='none';document.getElementById('landing-page').style.display='block';document.getElementById('main-nav').style.display='flex';document.getElementById('success-screen').style.display='none';document.getElementById('form-container').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
 
 const data={};const TOTAL=7;let cur=0;
 
 const sections=[
-  {id:'s1',eyebrow:'01 — Identity',title:'Personal details',name:'Personal details',desc:'Name, vitals, location, and contact details.',
+  {id:'s1',eyebrow:'01 — Identity',title:'Personal details',name:'Personal details',desc:'Your name, vitals, location, and how we reach you.',
    render(){return`<div class="subsec"><div class="subsec-label">Full name</div><div class="two-col"><div class="field"><label>First name</label><input type="text" id="firstName" placeholder="e.g. Priya" oninput="save('firstName',this.value)"></div><div class="field"><label>Last name</label><input type="text" id="lastName" placeholder="e.g. Sharma" oninput="save('lastName',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Age & pronouns</div><div class="two-col"><div class="field"><label>Age</label><input type="number" id="age" placeholder="e.g. 28" min="5" max="100" oninput="save('age',this.value)"></div><div class="field"><label>Pronouns</label><select id="pronouns" onchange="save('pronouns',this.value)"><option value="">Select</option><option>She / her</option><option>He / him</option><option>They / them</option><option>She / they</option><option>He / they</option><option>Any / all</option><option>Prefer not to say</option></select></div></div></div><div class="subsec"><div class="subsec-label">Physical</div><div class="two-col"><div class="field"><label>Height (cm)</label><input type="number" id="height" placeholder="e.g. 165" min="100" max="230" oninput="save('height',this.value)"></div><div class="field"><label>Weight (kg) — optional</label><input type="number" id="weight" placeholder="e.g. 60" oninput="save('weight',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Location</div><div class="two-col"><div class="field"><label>City</label><input type="text" id="city" placeholder="e.g. Mumbai" oninput="save('city',this.value)"></div><div class="field"><label>State</label><select id="state" onchange="save('state',this.value)"><option value="">Select</option><option>Andhra Pradesh</option><option>Delhi</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Punjab</option><option>Rajasthan</option><option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option><option>West Bengal</option><option>Other</option></select></div></div></div><div class="subsec"><div class="subsec-label">Contact</div><div class="two-col"><div class="field"><label>Phone number</label><input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" oninput="save('phone',this.value)"></div><div class="field"><label>Email address</label><input type="email" id="email" placeholder="you@email.com" oninput="save('email',this.value)"></div></div></div>`},
    restore(){['firstName','lastName','age','height','weight','city','phone','email'].forEach(restoreInput);restoreSelect('pronouns');restoreSelect('state')}
   },
-  {id:'s2',eyebrow:'02 — Overview',title:'At a glance',name:'At a glance',desc:'Experience level, mediums of work, and languages spoken.',
+  {id:'s2',eyebrow:'02 — Overview',title:'At a glance',name:'At a glance',desc:'Your experience level, mediums you work in, and languages you speak.',
    render(){return`<div class="subsec"><div class="subsec-label">Overall industry experience</div><div class="radio-row" id="exp-radio"></div></div><div class="subsec"><div class="subsec-label">Primary medium of work</div><div class="check-grid" id="medium-check"></div><div class="cond" id="medium-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="mediumOther" placeholder="e.g. Radio..." oninput="save('mediumOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Indian languages spoken</div><div class="check-grid" id="lang-check"></div><div class="cond" id="lang-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="langOther" placeholder="e.g. Tulu, Konkani..." oninput="save('langOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Foreign languages spoken</div><div class="check-grid" id="foreign-check"></div><div class="cond" id="foreign-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="foreignOther" placeholder="e.g. Arabic, Japanese..." oninput="save('foreignOther',this.value)"></div></div></div>`},
    init(){makeRadio('exp-radio',['Beginner (0–1 yr)','Emerging (1–3 yrs)','Mid-level (3–6 yrs)','Experienced (6–10 yrs)','Veteran (10+ yrs)'],'experience');makeChecks('medium-check',['Films (Hindi)','Films (Regional)','Web series (OTT)','Short films','Television serials','Theatre','Street plays / Nukkad Natak','Ad films / TVC','Music videos','Corporate films','Documentaries','Voice-over / dubbing','Other'],'medium','Other','medium-other-cond');makeChecks('lang-check',['Hindi','Bengali','Marathi','Tamil','Telugu','Kannada','Malayalam','Gujarati','Punjabi','Urdu','Odia','Assamese','Other'],'lang','Other','lang-other-cond');makeChecks('foreign-check',['English','French','German','Spanish','Italian','Mandarin','Japanese','Russian','Arabic','Portuguese','Other'],'foreign','Other','foreign-other-cond');restoreInput('mediumOther');restoreInput('langOther');restoreInput('foreignOther')}
   },
-  {id:'s3',eyebrow:'03 — Skills',title:'Skills & performance',name:'Skills',desc:'Dance, voice, vehicles, and everything that goes into a role.',
+  {id:'s3',eyebrow:'03 — Skills',title:'Skills & performance',name:'Skills',desc:'Dance, voice, vehicles, and everything else you bring to a role.',
    render(){return`<div class="subsec"><div class="subsec-label">Dance</div><div class="field"><label>Which dance styles can you perform?</label><div class="field-hint">e.g. Bharatnatyam, Kathak, Hip-hop, Contemporary, Salsa, Folk...</div><input type="text" id="dance" placeholder="Type your dance styles" oninput="save('dance',this.value)" style="margin-top:7px"></div></div><div class="subsec"><div class="subsec-label">Music & voice</div><div class="check-grid" id="music-check"></div><div class="cond" id="music-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="musicOther" placeholder="e.g. Violin, Rap..." oninput="save('musicOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Vehicles you can drive</div><div class="check-grid" id="vehicle-check"></div><div class="cond" id="vehicle-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="vehicleOther" placeholder="e.g. Tractor, Boat..." oninput="save('vehicleOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Other skills</div><div class="check-grid" id="otherskill-check"></div><div class="cond" id="otherskill-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="otherskillOther" placeholder="e.g. Juggling..." oninput="save('otherskillOther',this.value)"></div></div><div style="margin-top:14px"><div class="field-hint" style="margin-bottom:8px">Any additional skills not listed above?</div><div class="tag-list" id="custom-skills-list"></div><div class="tag-add-row"><input type="text" id="custom-skill-input" placeholder="e.g. Calligraphy..."><button class="btn-add" onclick="addTag('custom-skill-input','custom-skills-list','customSkills')">+ Add</button></div></div></div><div class="subsec"><div class="subsec-label">Teaching & coaching</div><div class="field-hint" style="margin-bottom:10px">What do you teach or coach?</div><div class="check-grid" id="teaching-check"></div><div class="cond" id="teaching-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="teachingOther" placeholder="e.g. Music, Yoga..." oninput="save('teachingOther',this.value)"></div></div></div>`},
    init(){makeChecks('music-check',['Trained singer','Playback singing','Voice acting','Dubbing','Other'],'music','Other','music-other-cond');makeChecks('vehicle-check',['Two-wheeler','Car','Auto-rickshaw','Truck / heavy vehicle','Other'],'vehicle','Other','vehicle-other-cond');makeChecks('otherskill-check',['Mimicry','Stand-up comedy','Improv','Magic / illusion','Acrobatics','Horse riding','Stunts','Other'],'otherskill','Other','otherskill-other-cond');makeChecks('teaching-check',['Acting','Dance','Singing / music','Drama (school)','Choreography','Voice & diction','Screen acting','Stage craft','Other'],'teaching','Other','teaching-other-cond');restoreInput('dance');restoreInput('musicOther');restoreInput('vehicleOther');restoreInput('otherskillOther');restoreInput('teachingOther');restoreTags('custom-skills-list','customSkills')}
   },
@@ -458,7 +450,7 @@ const sections=[
    render(){return`<div class="subsec"><div class="subsec-label">Also worked as</div><div class="field-hint" style="margin-bottom:10px">Roles behind the camera or off-stage</div><div class="check-grid" id="also-check"></div><div class="cond" id="also-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="alsoOther" placeholder="e.g. Producer..." oninput="save('alsoOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Theatre associations</div><div class="field-hint" style="margin-bottom:8px">Groups or troupes you have worked with or performed in</div><div class="tag-list" id="theatre-list"></div><div class="tag-add-row"><input type="text" id="theatre-input" placeholder="e.g. Prithvi Theatre..."><button class="btn-add" onclick="addTag('theatre-input','theatre-list','theatreGroups')">+ Add</button></div></div><div class="subsec"><div class="subsec-label">Certifications & awards</div><div class="field-hint" style="margin-bottom:8px">Certificates, awards, or recognitions received</div><div class="tag-list" id="cert-list"></div><div class="tag-add-row"><input type="text" id="cert-input" placeholder="e.g. Best Actor — Prithvi Festival 2022..."><button class="btn-add" onclick="addTag('cert-input','cert-list','certifications')">+ Add</button></div></div>`},
    init(){makeChecks('also-check',['Assistant Director (AD)','Production intern','Choreographer','Casting coordinator','Script supervisor','Production designer','Costume stylist','Makeup artist','Behind-camera crew','Dance teacher','Acting coach','Other'],'also','Other','also-other-cond');restoreInput('alsoOther');restoreTags('theatre-list','theatreGroups');restoreTags('cert-list','certifications')}
   },
-  {id:'s5',eyebrow:'05 — Training',title:'Education & training',name:'Training',desc:'Academic background, training institutes, and workshops attended.',
+  {id:'s5',eyebrow:'05 — Training',title:'Education & training',name:'Training',desc:'Academic background, where you trained, and workshops attended.',
    render(){return`<div class="subsec"><div class="subsec-label">Formal education</div><div class="two-col"><div class="field"><label>Highest qualification</label><select id="qualification" onchange="save('qualification',this.value)"><option value="">Select</option><option>Secondary school (Class 10)</option><option>Higher secondary (Class 12)</option><option>Diploma</option><option>Bachelor's degree</option><option>Master's degree</option><option>PhD / Doctoral</option><option>Other</option></select></div><div class="field"><label>Stream / subject area</label><select id="stream" onchange="save('stream',this.value)"><option value="">Select</option><option>Performing arts</option><option>Fine arts</option><option>Film studies</option><option>Mass communication</option><option>Literature / humanities</option><option>Science</option><option>Commerce</option><option>Engineering</option><option>Other</option></select></div></div></div><div class="subsec"><div class="subsec-label">Acting & performance training</div><div class="field"><label>Where did you train?</label><div class="field-hint">e.g. NSD, FTII, Barry John Acting Studio, online course...</div><input type="text" id="training" placeholder="Name of school, institute, or trainer" oninput="save('training',this.value)" style="margin-top:7px"></div></div><div class="subsec"><div class="subsec-label">Workshops attended</div><div class="field"><label>Which types of workshops have you attended?</label><div class="field-hint">e.g. voice & diction, audition technique, screen acting, movement...</div><input type="text" id="workshops" placeholder="List workshop types" oninput="save('workshops',this.value)" style="margin-top:7px"></div></div>`},
    restore(){restoreSelect('qualification');restoreSelect('stream');restoreInput('training');restoreInput('workshops')}
   },
@@ -466,7 +458,7 @@ const sections=[
    render(){return`<div class="subsec"><div class="subsec-label">Social & professional profiles</div><div class="field-hint" style="margin-bottom:12px">Enter the full URL for each profile you have</div><div class="two-col"><div class="field"><label>Instagram</label><input type="url" id="instagram" placeholder="https://instagram.com/..." oninput="save('instagram',this.value)"></div><div class="field"><label>YouTube</label><input type="url" id="youtube" placeholder="https://youtube.com/..." oninput="save('youtube',this.value)"></div><div class="field"><label>IMDb</label><input type="url" id="imdb" placeholder="https://imdb.com/name/..." oninput="save('imdb',this.value)"></div><div class="field"><label>LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/..." oninput="save('linkedin',this.value)"></div><div class="field"><label>Facebook</label><input type="url" id="facebook" placeholder="https://facebook.com/..." oninput="save('facebook',this.value)"></div><div class="field"><label>Personal website</label><input type="url" id="website" placeholder="https://yourname.com" oninput="save('website',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Other profile links</div><div class="field-hint" style="margin-bottom:8px">Casting sites, portfolio pages, or any other links</div><div class="tag-list" id="other-links-list"></div><div class="tag-add-row"><input type="url" id="other-link-input" placeholder="https://..."><button class="btn-add" onclick="addTag('other-link-input','other-links-list','otherLinks')">+ Add</button></div></div>`},
    restore(){['instagram','youtube','imdb','linkedin','facebook','website'].forEach(restoreInput);restoreTags('other-links-list','otherLinks')}
   },
-  {id:'s7',eyebrow:'07 — Memberships',title:'Union & guild membership',name:'Memberships',desc:'Industry unions or guilds — if applicable.',
+  {id:'s7',eyebrow:'07 — Memberships',title:'Union & guild membership',name:'Memberships',desc:'Any industry unions or guilds you are a member of.',
    render(){return`<div class="subsec"><div class="subsec-label">Memberships</div><div class="check-grid" id="union-check"></div><div class="cond" id="union-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="unionOther" placeholder="e.g. Film Writers' Association..." oninput="save('unionOther',this.value)"></div></div></div>`},
    init(){makeChecks('union-check',["CINTAA (Cine & TV Artists' Association)","IPTA (Indian People's Theatre Association)","Film Writers' Association",'None','Other'],'union','Other','union-other-cond');restoreInput('unionOther')}
   }
@@ -516,4 +508,13 @@ function generatePDF(){
   sh('Skills & performance');qa('Dance styles',data.dance);qa('Music & voice',data.music);if(data.music&&data.music.includes('Other'))qa('Music (other)',data.musicOther);qa('Vehicles',data.vehicle);if(data.vehicle&&data.vehicle.includes('Other'))qa('Vehicle (other)',data.vehicleOther);qa('Other skills',data.otherskill);if(data.otherskill&&data.otherskill.includes('Other'))qa('Skills (other)',data.otherskillOther);qa('Additional skills',data.customSkills);qa('Teaching & coaching',data.teaching);if(data.teaching&&data.teaching.includes('Other'))qa('Teaching (other)',data.teachingOther);
   sh('Work experience');qa('Also worked as',data.also);if(data.also&&data.also.includes('Other'))qa('Also worked as (other)',data.alsoOther);qa('Theatre associations',data.theatreGroups);qa('Certifications & awards',data.certifications);
   sh('Education & training');qa('Highest qualification',data.qualification);qa('Stream',data.stream);qa('Training',data.training);qa('Workshops',data.workshops);
-  sh('Online presence');qa('Instagram',data.instagram);qa('YouTube',data.youtube);qa('IMDb',data.imdb);qa('LinkedIn',data.linkedin);qa('Facebook',data.fac
+  sh('Online presence');qa('Instagram',data.instagram);qa('YouTube',data.youtube);qa('IMDb',data.imdb);qa('LinkedIn',data.linkedin);qa('Facebook',data.facebook);qa('Website',data.website);qa('Other links',data.otherLinks);
+  sh('Union & guild membership');qa('Memberships',data.union);if(data.union&&data.union.includes('Other'))qa('Membership (other)',data.unionOther);
+  const tp=doc.internal.getNumberOfPages();
+  for(let i=1;i<=tp;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(180,170,200);doc.text(`Arc Portfolio — ${fn}`,ml,pH-10);doc.text(`${i} / ${tp}`,W-mr,pH-10,{align:'right'})}
+  const sn=fn.replace(/\s+/g,'_').replace(/[^a-zA-Z0-9_]/g,'')||'Actor';
+  doc.save(`ActorPortfolio_${sn}.pdf`);
+}
+</script>
+</body>
+</html>
