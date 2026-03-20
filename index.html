@@ -5,196 +5,186 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arc — Actor Portfolio Websites</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#FAF7FF;--surface:#F3EEFF;--surface2:#EDE5FF;
-  --border:#DDD5F5;--border2:#C4A8F0;
-  --text:#1A0A2E;--muted:#7C6A9A;--faint:#9A8AB0;
-  --accent:#7C3AED;--accent2:#A855F7;
-  --accent-g:rgba(124,58,237,0.09);
-  --white:#FFFFFF;--radius:7px;--radius-lg:14px;
+  --black:#0B0B0F;
+  --white:#FFFFFF;
+  --soft:#F5F5F5;
+  --orange:#FF6A00;
+  --orange-h:#FF8A3D;
+  --grey:#9CA3AF;
+  --border:#222228;
+  --border-light:#E5E5E5;
+  --radius:6px;
+  --radius-lg:12px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white);font-size:15px;line-height:1.6;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(250,247,255,0.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo-word{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--text);letter-spacing:-.03em}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(11,11,15,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-logo-word{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-.02em}
 .nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:9px 20px;border-radius:var(--radius);text-decoration:none;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
-.nav-cta:hover{background:#6D28D9}
+.nav-links a{font-size:13px;color:var(--grey);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--orange);color:var(--white);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 18px;border-radius:var(--radius);border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--orange-h)}
 
-/* HERO */
+/* ── BUTTONS ── */
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--white);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.btn-primary:hover{background:var(--orange-h)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--grey);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;padding:14px 24px;border-radius:var(--radius);border:1px solid var(--border);cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
+.btn-ghost:hover{border-color:#444;color:var(--white)}
+.btn-white{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--black);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:all .2s}
+.btn-white:hover{background:var(--soft)}
+
+/* ── HERO ── */
 #home{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 1.5rem 5rem;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0;display:flex;align-items:center;justify-content:center}
-.hero-content{position:relative;z-index:1;max-width:700px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);background:var(--surface);border:1px solid var(--border2);padding:6px 16px;border-radius:999px;margin-bottom:1.75rem}
-.hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
-h1.hero-h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,3.9rem);line-height:1.08;letter-spacing:-.03em;color:var(--text);margin-bottom:1.25rem}
-h1.hero-h1 em{font-style:normal;color:var(--accent)}
-.hero-sub{font-size:clamp(14px,2vw,16px);color:var(--muted);font-weight:300;line-height:1.8;max-width:480px;margin:0 auto 2.5rem}
+.hero-arc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.05}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem}
+.hero-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+h1.hero-h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem,6vw,4rem);line-height:1.06;letter-spacing:-.03em;color:var(--white);margin-bottom:1.25rem}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:var(--grey);font-weight:300;line-height:1.8;max-width:500px;margin:0 auto 1.5rem}
+.hero-trust{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--orange);font-weight:500;margin-bottom:2.25rem}
+.hero-trust-icon{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--orange);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
 .hero-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 28px;border-radius:var(--radius);text-decoration:none;border:none;cursor:pointer;transition:all .2s}
-.btn-primary:hover{background:#6D28D9;transform:translateY(-1px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;padding:13px 24px;border-radius:var(--radius);border:1px solid var(--border);text-decoration:none;cursor:pointer;transition:all .2s}
-.btn-ghost:hover{border-color:var(--border2);color:var(--text)}
 
-/* SECTIONS */
-section{padding:5.5rem 1.5rem}
-.section-inner{max-width:1000px;margin:0 auto}
-.section-eyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
-h2.section-h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.5vw,2.3rem);line-height:1.12;letter-spacing:-.025em;color:var(--text);margin-bottom:.9rem}
-.section-lead{font-size:15px;color:var(--muted);font-weight:300;line-height:1.75;max-width:480px}
+/* ── HOW IT WORKS ── */
+#how{background:var(--soft);padding:6rem 1.5rem;color:var(--black)}
+.how-inner{max-width:680px;margin:0 auto}
+.section-tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem}
+h2.section-h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.1;letter-spacing:-.025em;color:var(--black);margin-bottom:.75rem}
+.section-lead{font-size:15px;color:#555;font-weight:300;line-height:1.75;margin-bottom:3rem}
+.steps{display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:44px 1fr;gap:0}
+.step-spine{display:flex;flex-direction:column;align-items:center;padding-top:2px}
+.step-circle{width:32px;height:32px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--orange)}
+.step-line{width:1px;flex:1;background:#ccc;margin:5px 0}
+.step:last-child .step-line{display:none}
+.step-body{padding:0 0 2.5rem 1rem}
+.step-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--black);margin-bottom:.3rem;padding-top:5px}
+.step-desc{font-size:13px;color:#555;font-weight:300;line-height:1.7}
+.step-note{margin-top:.6rem;background:#fff;border:1px solid var(--border-light);border-radius:6px;padding:.6rem .9rem;font-size:12px;color:#777;display:inline-block}
 
-/* HOW IT WORKS — vertical timeline style */
-#how{background:var(--white)}
-.steps-list{margin-top:3.5rem;display:flex;flex-direction:column;gap:0}
-.step-row{display:grid;grid-template-columns:52px 1fr;gap:0;position:relative}
-.step-spine{display:flex;flex-direction:column;align-items:center;padding-top:4px}
-.step-circle{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1}
-.step-circle-num{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--accent)}
-.step-line{width:1.5px;flex:1;background:var(--border);margin:6px 0}
-.step-row:last-child .step-line{display:none}
-.step-body{padding:0 0 3rem 1.5rem}
-.step-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.4rem;letter-spacing:-.01em;padding-top:6px}
-.step-desc{font-size:13px;color:var(--muted);font-weight:300;line-height:1.7}
-.step-note{margin-top:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;font-size:12px;color:var(--muted);font-weight:300;line-height:1.6;display:inline-block}
+/* ── PROMISE SECTION ── */
+#promise{background:var(--black);padding:5rem 1.5rem;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.promise-inner{max-width:560px;margin:0 auto}
+.promise-text{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--white);font-weight:300;line-height:1.85}
+.promise-text strong{color:var(--orange);font-weight:500}
 
-/* FEATURES */
-#features{background:var(--bg)}
-.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:3rem}
-.feature-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;transition:border-color .2s,transform .2s}
-.feature-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.feature-card.wide{grid-column:1/-1}
-.feature-icon{width:38px;height:38px;border-radius:9px;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
-.feature-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:.4rem;letter-spacing:-.01em}
-.feature-desc{font-size:13px;color:var(--muted);font-weight:300;line-height:1.65}
+/* ── CTA BAND ── */
+#cta-band{background:var(--orange);padding:5.5rem 1.5rem;text-align:center}
+.cta-inner{max-width:520px;margin:0 auto}
+.cta-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.5rem);color:var(--white);letter-spacing:-.025em;margin-bottom:.75rem;line-height:1.1}
+.cta-sub{font-size:15px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.7;margin-bottom:2rem}
 
-/* CTA BAND */
-#cta-band{background:var(--accent);padding:5rem 1.5rem;text-align:center}
-.cta-band-inner{max-width:540px;margin:0 auto}
-.cta-band-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.5vw,2.2rem);color:#fff;letter-spacing:-.025em;margin-bottom:.8rem;line-height:1.12}
-.cta-band-sub{font-size:14px;color:rgba(255,255,255,0.58);font-weight:300;line-height:1.75;margin-bottom:2rem}
-.btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--accent);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:all .2s;text-decoration:none}
-.btn-white:hover{background:var(--surface);transform:translateY(-1px)}
+/* ── EARLY TRUST ── */
+#early{background:var(--soft);padding:5rem 1.5rem;text-align:center}
+.early-inner{max-width:500px;margin:0 auto}
+.early-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.4rem,3vw,1.9rem);color:var(--black);letter-spacing:-.02em;margin-bottom:.75rem;line-height:1.15}
+.early-body{font-size:15px;color:#555;font-weight:300;line-height:1.75}
 
-/* CONTACT */
-#contact{background:var(--white);padding:4.5rem 1.5rem}
-.contact-inner{max-width:520px;margin:0 auto;text-align:center}
-.contact-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:2rem}
-.contact-item{display:flex;align-items:center;gap:9px;background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:.75rem 1.1rem;font-size:13px;color:var(--text);text-decoration:none;transition:border-color .2s}
-.contact-item:hover{border-color:var(--border2)}
-.contact-item-icon{width:30px;height:30px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.contact-note{font-size:13px;color:var(--faint);font-weight:300;margin-top:1.25rem;line-height:1.65}
+/* ── CONTACT ── */
+#contact{background:var(--black);padding:5rem 1.5rem;text-align:center}
+.contact-inner{max-width:420px;margin:0 auto}
+.contact-h{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:var(--white);letter-spacing:-.02em;margin-bottom:.5rem}
+.contact-sub{font-size:14px;color:var(--grey);font-weight:300;line-height:1.7;margin-bottom:1.75rem}
+.contact-pill{display:inline-flex;align-items:center;gap:10px;background:#111117;border:1px solid var(--border);border-radius:999px;padding:.7rem 1.4rem;font-size:14px;color:var(--white);text-decoration:none;transition:border-color .2s}
+.contact-pill:hover{border-color:#444}
+.contact-pill-icon{width:28px;height:28px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-note{font-size:12px;color:#444;margin-top:1.25rem;font-weight:300}
 
-/* EARLY ADOPTER BAND */
-#early{background:var(--text);padding:5.5rem 1.5rem;text-align:center;position:relative;overflow:hidden}
-#early::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.18) 0%,transparent 70%);pointer-events:none}
-.early-inner{max-width:560px;margin:0 auto;position:relative;z-index:1}
-.early-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.25);border:1px solid rgba(168,85,247,0.35);border-radius:999px;padding:5px 16px;margin-bottom:1.5rem}
-.early-badge-dot{width:6px;height:6px;border-radius:50%;background:#A855F7;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.early-badge-text{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C4A8F0}
-.early-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.6rem);color:#EEEAE3;letter-spacing:-.025em;line-height:1.1;margin-bottom:1rem}
-.early-h em{font-style:normal;color:#A855F7}
-.early-sub{font-size:14px;color:rgba(200,196,188,0.65);font-weight:300;line-height:1.8;margin-bottom:.6rem;max-width:440px;margin-left:auto;margin-right:auto}
-.early-sub2{font-size:13px;color:rgba(200,196,188,0.38);font-weight:300;line-height:1.7;margin-bottom:2.25rem;font-style:italic}
-.early-disclaimer{font-size:11px;color:rgba(200,196,188,0.3);margin-top:1.25rem;font-weight:300;line-height:1.6}
+/* ── FOOTER ── */
+footer{background:var(--black);padding:2rem 1.5rem;text-align:center;border-top:1px solid var(--border)}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--white);letter-spacing:-.01em;margin-bottom:.3rem}
+.footer-sub{font-size:12px;color:#333}
 
-/* FOOTER */
-footer{background:var(--text);padding:2.25rem 1.5rem;text-align:center;border-top:1px solid rgba(124,58,237,0.15)}
-.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#EDE5FF;letter-spacing:-.02em;margin-bottom:.35rem}
-.footer-sub{font-size:12px;color:rgba(237,229,255,0.28);font-weight:300}
+/* ── FORM PAGE ── */
+#form-page{display:none;min-height:100vh;background:var(--black)}
+.form-top{background:var(--black);border-bottom:1px solid var(--border);padding:1.5rem;position:sticky;top:0;z-index:100}
+.form-top-inner{max-width:640px;margin:0 auto}
+.form-top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
+.form-step-label{font-size:12px;color:var(--grey)}
+.form-step-name{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--orange);letter-spacing:.05em}
+.form-pb-wrap{height:2px;background:var(--border);border-radius:2px}
+.form-pb{height:100%;background:var(--orange);border-radius:2px;transition:width .4s ease;width:0%}
+.form-body{max-width:640px;margin:0 auto;padding:3rem 1.5rem 6rem}
 
-/* FORM PAGE */
-#form-page{display:none;padding-top:62px}
-.form-header{background:var(--white);border-bottom:1px solid var(--border);padding:1.75rem 1.5rem 0;position:sticky;top:62px;z-index:50}
-.form-header-inner{max-width:660px;margin:0 auto}
-.form-progress-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.65rem}
-.form-progress-label span{font-size:12px;color:var(--faint)}
-.form-progress-label strong{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.06em}
-.fpb-wrap{height:3px;background:var(--border);border-radius:2px;margin-bottom:1.5rem}
-.fpb{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
-.form-body{max-width:660px;margin:0 auto;padding:3rem 1.5rem 6rem}
-.feyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem}
-.ftitle{font-family:'Syne',sans-serif;font-size:1.85rem;font-weight:800;color:var(--text);margin-bottom:.4rem;line-height:1.15;letter-spacing:-.02em}
-.fdesc{font-size:14px;color:var(--muted);margin-bottom:2.75rem;font-weight:300;line-height:1.65}
-.subsec{margin-bottom:2.25rem}
-.subsec-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;padding-bottom:.55rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
-.subsec-label::before{content:'';width:3px;height:10px;background:var(--accent);border-radius:2px;flex-shrink:0}
-.field{margin-bottom:1.1rem}
-.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:.38rem;font-weight:500;letter-spacing:.02em}
-.field input[type=text],.field input[type=number],.field input[type=tel],.field input[type=email],.field input[type=url],.field select{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
-.field input::placeholder{color:var(--faint)}
-.field input:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-g)}
-.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237C6A9A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;background-color:var(--white)}
-.field-hint{font-size:12px;color:var(--faint);margin-top:4px;font-style:italic;font-weight:300;line-height:1.5}
+/* ── FORM ELEMENTS ── */
+.feyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem}
+.ftitle{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--white);margin-bottom:.4rem;line-height:1.15;letter-spacing:-.02em}
+.fdesc{font-size:14px;color:var(--grey);margin-bottom:2.5rem;font-weight:300;line-height:1.65}
+.subsec{margin-bottom:2rem}
+.subsec-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-bottom:.85rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.subsec-label::before{content:'';width:3px;height:10px;background:var(--orange);border-radius:2px;flex-shrink:0}
+.field{margin-bottom:1rem}
+.field label{display:block;font-size:12px;color:var(--grey);margin-bottom:.35rem;font-weight:400;letter-spacing:.02em}
+.field input[type=text],.field input[type=number],.field input[type=tel],.field input[type=email],.field input[type=url],.field select{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:var(--radius);background:#111117;color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;transition:border-color .2s;appearance:none;-webkit-appearance:none}
+.field input::placeholder{color:#444}
+.field input:focus,.field select:focus{outline:none;border-color:var(--orange)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239CA3AF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;background-color:#111117;cursor:pointer}
+.field select option{background:#111117;color:var(--white)}
+.field-hint{font-size:12px;color:#555;margin-top:4px;font-style:italic;line-height:1.5}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:7px}
-.check-item{display:flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:13px;color:var(--muted);background:var(--white);transition:all .15s;user-select:none;line-height:1.3}
-.check-item:hover{border-color:var(--border2);color:var(--text);background:var(--surface)}
-.check-item input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent);flex-shrink:0;cursor:pointer}
-.check-item.checked{border-color:var(--accent);background:var(--surface);color:var(--text)}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:7px}
+.check-item{display:flex;align-items:center;gap:9px;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:13px;color:var(--grey);background:#111117;transition:all .15s;user-select:none;line-height:1.3}
+.check-item:hover{border-color:#444;color:var(--white)}
+.check-item input[type=checkbox]{width:15px;height:15px;accent-color:var(--orange);flex-shrink:0;cursor:pointer}
+.check-item.checked{border-color:var(--orange);color:var(--white)}
 .radio-row{display:flex;flex-wrap:wrap;gap:7px}
-.radio-pill{padding:7px 18px;border:1px solid var(--border);border-radius:999px;font-size:13px;color:var(--muted);cursor:pointer;background:var(--white);transition:all .15s;user-select:none;white-space:nowrap;font-family:'DM Sans',sans-serif}
-.radio-pill:hover{border-color:var(--border2);color:var(--text)}
-.radio-pill.selected{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:500}
-.tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px;min-height:2px}
-.tag{display:flex;align-items:center;gap:6px;padding:5px 13px;background:var(--surface);border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--text)}
-.tag-remove{cursor:pointer;color:var(--faint);font-size:15px;line-height:1;transition:color .15s}
-.tag-remove:hover{color:var(--accent)}
+.radio-pill{padding:7px 16px;border:1px solid var(--border);border-radius:999px;font-size:13px;color:var(--grey);cursor:pointer;background:#111117;transition:all .15s;user-select:none;white-space:nowrap}
+.radio-pill:hover{border-color:#444;color:var(--white)}
+.radio-pill.selected{background:var(--orange);border-color:var(--orange);color:var(--white);font-weight:500}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;min-height:2px}
+.tag{display:flex;align-items:center;gap:6px;padding:5px 12px;background:#111117;border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--white)}
+.tag-remove{cursor:pointer;color:#555;font-size:15px;line-height:1;transition:color .15s}
+.tag-remove:hover{color:var(--orange)}
 .tag-add-row{display:flex;gap:8px}
-.tag-add-row input{flex:1;height:40px;padding:0 13px;border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:var(--white);transition:all .2s}
-.tag-add-row input::placeholder{color:var(--faint)}
-.tag-add-row input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-g)}
-.btn-add{height:40px;padding:0 16px;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;white-space:nowrap;transition:all .15s}
-.btn-add:hover{border-color:var(--accent);color:var(--accent);background:var(--surface)}
+.tag-add-row input{flex:1;height:40px;padding:0 13px;border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--white);background:#111117;transition:border-color .2s}
+.tag-add-row input::placeholder{color:#444}
+.tag-add-row input:focus{outline:none;border-color:var(--orange)}
+.btn-add{height:40px;padding:0 16px;border:1px solid var(--border);border-radius:var(--radius);background:#111117;color:var(--grey);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;white-space:nowrap;transition:all .15s}
+.btn-add:hover{border-color:var(--orange);color:var(--orange)}
 .cond{display:none;margin-top:10px}
 .cond.show{display:block}
-.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border)}
-.btn-nav{height:46px;padding:0 28px;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);color:var(--muted);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s}
-.btn-nav:hover:not(:disabled){border-color:var(--border2);color:var(--text)}
-.btn-nav.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn-nav.primary:hover{background:#6D28D9;border-color:#6D28D9}
-.btn-nav:disabled{opacity:.3;cursor:not-allowed}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border)}
+.btn-nav{height:44px;padding:0 24px;border:1px solid var(--border);border-radius:var(--radius);background:transparent;color:var(--grey);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.btn-nav:hover:not(:disabled){border-color:#444;color:var(--white)}
+.btn-nav.primary{background:var(--orange);border-color:var(--orange);color:var(--white)}
+.btn-nav.primary:hover{background:var(--orange-h);border-color:var(--orange-h)}
+.btn-nav:disabled{opacity:.25;cursor:not-allowed}
 
-/* SUCCESS */
-#success-screen{display:none;text-align:center;padding:3.5rem 1rem}
-.success-ring{width:64px;height:64px;border:1.5px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;color:var(--accent);font-size:24px}
-.success-title{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;color:var(--text);margin-bottom:.6rem;letter-spacing:-.02em}
-.success-desc{font-size:14px;color:var(--muted);max-width:400px;margin:0 auto 2rem;line-height:1.75;font-weight:300}
+/* ── SUCCESS ── */
+#success-screen{display:none;text-align:center;padding:4rem 1.5rem}
+.success-ring{width:64px;height:64px;border:1.5px solid var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;color:var(--orange);font-size:24px}
+.success-title{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--white);margin-bottom:.6rem;letter-spacing:-.02em}
+.success-desc{font-size:14px;color:var(--grey);max-width:400px;margin:0 auto 2rem;line-height:1.75;font-weight:300}
 .success-steps{display:flex;flex-direction:column;gap:8px;max-width:400px;margin:0 auto 2rem;text-align:left}
-.success-step{display:flex;align-items:flex-start;gap:11px;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.9rem 1rem}
-.success-step-num{width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.success-step-text{font-size:13px;color:var(--text);line-height:1.55;font-weight:300}
-.success-step-text strong{font-weight:500}
-.btn-download{display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 32px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
-.btn-download:hover{background:#6D28D9;transform:translateY(-1px)}
-.success-contact{margin-top:1.75rem;padding-top:1.75rem;border-top:1px solid var(--border)}
-.success-contact-label{font-size:12px;color:var(--faint);font-weight:300;margin-bottom:.9rem}
-.scc-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.scc{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.6rem 1rem;font-size:13px;color:var(--text);text-decoration:none;transition:border-color .15s}
-.scc:hover{border-color:var(--border2)}
-.scc-icon{width:26px;height:26px;border-radius:6px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.btn-back{display:block;margin:1.5rem auto 0;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--faint);cursor:pointer;transition:color .15s;text-decoration:underline;text-underline-offset:3px}
-.btn-back:hover{color:var(--accent)}
+.success-step{display:flex;align-items:flex-start;gap:11px;background:#111117;border:1px solid var(--border);border-radius:9px;padding:.9rem 1rem}
+.success-step-num{width:22px;height:22px;border-radius:50%;background:var(--orange);color:var(--white);font-family:'Syne',sans-serif;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.success-step-text{font-size:13px;color:var(--grey);line-height:1.6;font-weight:300}
+.success-step-text strong{color:var(--white);font-weight:500}
+.btn-download{display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 32px;background:var(--orange);color:var(--white);border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.btn-download:hover{background:var(--orange-h)}
+.success-wa{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.success-wa-label{font-size:12px;color:#444;margin-bottom:.75rem}
+.wa-btn{display:inline-flex;align-items:center;gap:8px;background:#111117;border:1px solid var(--border);border-radius:8px;padding:.6rem 1.1rem;font-size:13px;color:var(--white);text-decoration:none;transition:border-color .15s}
+.wa-btn:hover{border-color:var(--orange)}
+.wa-icon{width:26px;height:26px;border-radius:6px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.btn-back{display:block;margin:1.25rem auto 0;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:13px;color:#444;cursor:pointer;text-decoration:underline;text-underline-offset:3px;transition:color .15s}
+.btn-back:hover{color:var(--orange)}
 
-@media(max-width:768px){
-  nav{padding:0 1.25rem}.nav-links{display:none}
-  .features-grid{grid-template-columns:1fr}.feature-card.wide{grid-column:1}
-}
-@media(max-width:540px){
-  .two-col{grid-template-columns:1fr}.check-grid{grid-template-columns:1fr 1fr}
-  .form-body{padding:2rem 1.25rem 5rem}
-  .contact-row{flex-direction:column;align-items:stretch}
-}
+@media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}}
+@media(max-width:540px){.two-col{grid-template-columns:1fr}.check-grid{grid-template-columns:1fr 1fr}.form-body{padding:2rem 1rem 5rem}}
 </style>
+
+<!-- showForm defined FIRST — before anything else loads -->
 <script>
 function showForm(){
   var lp=document.getElementById('landing-page');
@@ -204,8 +194,8 @@ function showForm(){
   if(fp)fp.style.display='block';
   if(mn)mn.style.display='none';
   window.scrollTo({top:0,behavior:'smooth'});
-  if(typeof showSection==='function')showSection(0);
-  else document.addEventListener('DOMContentLoaded',function(){showSection(0)});
+  if(typeof showSection==='function'){showSection(0);}
+  else{document.addEventListener('appready',function(){showSection(0);},{once:true});}
 }
 function backToHome(){
   var lp=document.getElementById('landing-page');
@@ -221,46 +211,44 @@ function backToHome(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
+
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="main-nav">
   <a class="nav-logo" href="#home">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <defs><linearGradient id="nlg" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs>
-      <path d="M4 25 Q11 25 17 17 Q23 9 27 3" stroke="url(#nlg)" stroke-width="2.8" stroke-linecap="round" fill="none"/>
-      <line x1="4" y1="25" x2="27" y2="25" stroke="#DDD5F5" stroke-width="1.2" stroke-linecap="round"/>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <path d="M3 22 Q9 22 14 14 Q19 7 24 2" stroke="#FF6A00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <line x1="3" y1="22" x2="24" y2="22" stroke="#333" stroke-width="1.2" stroke-linecap="round"/>
     </svg>
     <span class="nav-logo-word">arc</span>
   </a>
   <div class="nav-links">
     <a href="#how">How it works</a>
-    <a href="#early">Introductory offer</a>
+    <a href="#early">Early offer</a>
     <a href="#contact">Contact</a>
   </div>
-  <button class="nav-cta" onclick="showForm()">Get started →</button>
+  <button class="nav-cta" onclick="showForm()">Start your arc →</button>
 </nav>
 
-<!-- LANDING -->
+<!-- ══ LANDING PAGE ══ -->
 <div id="landing-page">
 
   <!-- HERO -->
   <section id="home">
-    <div class="hero-bg">
-      <svg width="900" height="900" viewBox="0 0 900 900" fill="none" style="opacity:.04">
-        <path d="M100 750 Q300 750 450 500 Q600 250 750 80" stroke="#7C3AED" stroke-width="130" stroke-linecap="round" fill="none"/>
+    <div class="hero-arc">
+      <svg width="700" height="700" viewBox="0 0 700 700" fill="none">
+        <path d="M80 600 Q200 600 350 400 Q500 200 600 60" stroke="#FF6A00" stroke-width="160" stroke-linecap="round"/>
       </svg>
     </div>
     <div class="hero-content">
-      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>New &nbsp;·&nbsp; Actor Portfolio Websites</div>
-      <h1 class="hero-h1">Your craft deserves<br>a <em>proper stage.</em></h1>
-      <p class="hero-sub">We design and build portfolio websites for actors. Bring the talent and the story — we'll make sure it looks the part.</p>
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Actor Portfolio Websites</div>
+      <h1 class="hero-h1">Put your work<br>in the right frame.</h1>
+      <p class="hero-sub">We design clean, focused portfolio websites for actors — so casting directors and agencies see exactly what matters.</p>
+      <div class="hero-trust"><div class="hero-trust-icon">✓</div>Pay only after your portfolio is ready.</div>
       <div class="hero-btns">
-        <button class="btn-primary" onclick="showForm()">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Start my portfolio
-        </button>
+        <button class="btn-primary" onclick="showForm()">Start your arc</button>
         <a class="btn-ghost" href="#how">See how it works</a>
       </div>
     </div>
@@ -268,134 +256,108 @@ function backToHome(){
 
   <!-- HOW IT WORKS -->
   <section id="how">
-    <div class="section-inner">
-      <div class="section-eyebrow">How it works</div>
+    <div class="how-inner">
+      <div class="section-tag">How it works</div>
       <h2 class="section-h2">Straightforward process.</h2>
       <p class="section-lead">Fill in the details. We take care of the design, build, and delivery.</p>
-
-      <div class="steps-list" style="margin-top:3rem;max-width:600px">
-
-        <div class="step-row">
-          <div class="step-spine">
-            <div class="step-circle"><span class="step-circle-num">1</span></div>
-            <div class="step-line"></div>
-          </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-spine"><div class="step-circle"><span class="step-num">1</span></div><div class="step-line"></div></div>
           <div class="step-body">
             <div class="step-title">Fill the form</div>
             <div class="step-desc">Questions about skills, experience, training, and online presence. All tick-boxes and dropdowns — no writing required. Takes about 10 minutes.</div>
           </div>
         </div>
-
-        <div class="step-row">
-          <div class="step-spine">
-            <div class="step-circle"><span class="step-circle-num">2</span></div>
-            <div class="step-line"></div>
-          </div>
+        <div class="step">
+          <div class="step-spine"><div class="step-circle"><span class="step-num">2</span></div><div class="step-line"></div></div>
           <div class="step-body">
             <div class="step-title">Download & send us the PDF</div>
             <div class="step-desc">Answers compile into a PDF automatically. Send it to us on WhatsApp or email.</div>
           </div>
         </div>
-
-        <div class="step-row">
-          <div class="step-spine">
-            <div class="step-circle"><span class="step-circle-num">3</span></div>
-            <div class="step-line"></div>
-          </div>
+        <div class="step">
+          <div class="step-spine"><div class="step-circle"><span class="step-num">3</span></div><div class="step-line"></div></div>
           <div class="step-body">
             <div class="step-title">Briefing call</div>
             <div class="step-desc">A short call to understand the look, feel, and tone — colours, layout, how the portfolio should come across.</div>
           </div>
         </div>
-
-        <div class="step-row">
-          <div class="step-spine">
-            <div class="step-circle"><span class="step-circle-num">4</span></div>
-            <div class="step-line"></div>
-          </div>
+        <div class="step">
+          <div class="step-spine"><div class="step-circle"><span class="step-num">4</span></div><div class="step-line"></div></div>
           <div class="step-body">
             <div class="step-title">Upload the media</div>
             <div class="step-desc">We share a Google Drive link with clearly labelled folders — headshots, portfolio shoots, introduction video, previous work, and more.</div>
             <div class="step-note">Folders are pre-titled so it's clear what goes where.</div>
           </div>
         </div>
-
-        <div class="step-row">
-          <div class="step-spine">
-            <div class="step-circle"><span class="step-circle-num">5</span></div>
-          </div>
+        <div class="step">
+          <div class="step-spine"><div class="step-circle"><span class="step-num">5</span></div></div>
           <div class="step-body">
             <div class="step-title">Your portfolio goes live</div>
             <div class="step-desc">We compile everything, build the portfolio website, and share the live link — ready to send to whoever it needs to reach.</div>
           </div>
         </div>
-
       </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <section id="promise">
+    <div class="promise-inner">
+      <p class="promise-text">Start with the form — it's <strong>completely free.</strong> Send it to us and we'll shape the portfolio together. <strong>Payment only once everything is ready.</strong></p>
     </div>
   </section>
 
   <!-- CTA BAND -->
   <div id="cta-band">
-    <div class="cta-band-inner">
-      <div class="cta-band-h">Want a portfolio?</div>
-      <div class="cta-band-sub">Start by filling the form — it takes about 10 minutes. We'll handle everything from there.</div>
-      <button class="btn-white" onclick="showForm()">Start the form →</button>
+    <div class="cta-inner">
+      <div class="cta-h">Bring everything into focus.</div>
+      <div class="cta-sub">Start the form — we'll take it from there.</div>
+      <button class="btn-white" onclick="showForm()">Start the form</button>
     </div>
   </div>
 
-  <!-- EARLY ADOPTER -->
+  <!-- EARLY TRUST -->
   <section id="early">
     <div class="early-inner">
-      <div class="early-badge"><span class="early-badge-dot"></span><span class="early-badge-text">We're just getting started</span></div>
-      <div class="early-h">Be one of the<br><em>first.</em></div>
-      <div class="early-sub">Arc is new. We come from design and film — and we believe every actor deserves a portfolio that genuinely represents their work. The first few portfolios we build come at a special introductory price.</div>
-      <div class="early-sub2">Good design, honest presentation. That's what we're here for.</div>
-      <button class="btn-primary" onclick="showForm()" style="font-size:13px;padding:14px 32px"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg> Get your portfolio</button>
-      <div class="early-disclaimer">Fill the form and send it to us — we'll be in touch with pricing and next steps.</div>
+      <div class="section-tag" style="color:var(--orange)">Early offer</div>
+      <div class="early-h">A small thank you for starting early.</div>
+      <p class="early-body">We're building the first set of portfolios at a discounted price for early users.</p>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
-      <div class="section-eyebrow" style="text-align:center">Get in touch</div>
-      <h2 class="section-h2" style="text-align:center;font-size:1.7rem">Have a question?</h2>
-      <p class="section-lead" style="margin:0 auto;text-align:center;max-width:380px">Reach out on WhatsApp or email — for queries, pricing, or to send the completed PDF.</p>
-      <div class="contact-row">
-        <a class="contact-item" href="https://wa.me/919454905329" target="_blank">
-          <div class="contact-item-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </div>
-          +91 94549 05329
-        </a>
-        <a class="contact-item" href="/cdn-cgi/l/email-protection#fc978f94958895969d889d8e9fdadfcac8c79b919d9590d29f9391">
-          <div class="contact-item-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
-          </div>
-          kshitijatarc&#64;gmail.com
-        </a>
-      </div>
-      <div class="contact-note">Download the PDF after filling the form and send it to us. We'll follow up within 24 hours.</div>
+      <div class="contact-h">Contact</div>
+      <p class="contact-sub">For queries, pricing, or to send your completed PDF, reach out on WhatsApp.</p>
+      <a class="contact-pill" href="https://wa.me/919454905329" target="_blank">
+        <div class="contact-pill-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        +91 94549 05329
+      </a>
+      <div class="contact-note">We'll follow up within 24 hours.</div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">arc</div>
-    <div class="footer-sub">Actor portfolio websites · kshitijatarc&#64;gmail.com · +91 94549 05329</div>
+    <div class="footer-sub">focused portfolios for actors</div>
   </footer>
 
 </div><!-- end landing -->
 
-<!-- FORM PAGE -->
+<!-- ══ FORM PAGE ══ -->
 <div id="form-page">
-  <div class="form-header">
-    <div class="form-header-inner">
-      <div class="form-progress-label">
-        <span id="form-step-label">Step 1 of 7</span>
-        <strong id="form-section-name">Personal details</strong>
+  <div class="form-top">
+    <div class="form-top-inner">
+      <div class="form-top-row">
+        <span class="form-step-label" id="form-step-label">Step 1 of 7</span>
+        <span class="form-step-name" id="form-step-name">Personal details</span>
       </div>
-      <div class="fpb-wrap"><div class="fpb" id="fpb"></div></div>
+      <div class="form-pb-wrap"><div class="form-pb" id="form-pb"></div></div>
     </div>
   </div>
   <div class="form-body">
@@ -403,143 +365,230 @@ function backToHome(){
     <div id="success-screen">
       <div class="success-ring">✓</div>
       <div class="success-title">Form complete.</div>
-      <div class="success-desc">Download the PDF below, then send it to us — and we'll get the process started.</div>
+      <div class="success-desc">Download the PDF and send it to us on WhatsApp — we'll get the process started.</div>
       <div class="success-steps">
-        <div class="success-step">
-          <div class="success-step-num">1</div>
-          <div class="success-step-text">Click <strong>Download PDF</strong> — the completed form saves to the device.</div>
-        </div>
-        <div class="success-step">
-          <div class="success-step-num">2</div>
-          <div class="success-step-text">Send the PDF to us on <strong>WhatsApp</strong> or <strong>email</strong> using the buttons below.</div>
-        </div>
-        <div class="success-step">
-          <div class="success-step-num">3</div>
-          <div class="success-step-text">We'll be in touch within <strong>24 hours</strong> to schedule a briefing call and walk through the next steps.</div>
-        </div>
+        <div class="success-step"><div class="success-step-num">1</div><div class="success-step-text">Click <strong>Download PDF</strong> — the form saves to the device.</div></div>
+        <div class="success-step"><div class="success-step-num">2</div><div class="success-step-text">Send the PDF to us on <strong>WhatsApp</strong> using the button below.</div></div>
+        <div class="success-step"><div class="success-step-num">3</div><div class="success-step-text">We'll be in touch within <strong>24 hours</strong> to schedule a briefing call.</div></div>
       </div>
       <button class="btn-download" onclick="generatePDF()">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v13M7 11l5 5 5-5M5 20h14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v13M7 11l5 5 5-5M5 20h14" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Download PDF
       </button>
-      <div class="success-contact">
-        <div class="success-contact-label">Then send the PDF to us</div>
-        <div class="scc-row">
-          <a class="scc" href="https://wa.me/919454905329" target="_blank">
-            <div class="scc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-            WhatsApp
-          </a>
-          <a class="scc" href="/cdn-cgi/l/email-protection#91fae2f9f8e5f8fbf0e5f0e3f2b7b2a7a5aaf6fcf0f8fdbff2fefc">
-            <div class="scc-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
-            Email
-          </a>
-        </div>
+      <div class="success-wa">
+        <div class="success-wa-label">Then send it to us</div>
+        <a class="wa-btn" href="https://wa.me/919454905329" target="_blank">
+          <div class="wa-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+          WhatsApp — +91 94549 05329
+        </a>
       </div>
       <button class="btn-back" onclick="backToHome()">← Back to Arc</button>
     </div>
   </div>
 </div>
 
+<!-- ══ ALL JS AT BOTTOM ══ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
-function showForm(){
-  var lp=document.getElementById('landing-page');
-  var fp=document.getElementById('form-page');
-  var mn=document.getElementById('main-nav');
-  if(lp)lp.style.display='none';
-  if(fp)fp.style.display='block';
-  if(mn)mn.style.display='none';
-  window.scrollTo({top:0,behavior:'smooth'});
-  showSection(0);
-}
-function backToHome(){
-  var lp=document.getElementById('landing-page');
-  var fp=document.getElementById('form-page');
-  var mn=document.getElementById('main-nav');
-  var ss=document.getElementById('success-screen');
-  var fc=document.getElementById('form-container');
-  if(fp)fp.style.display='none';
-  if(lp)lp.style.display='block';
-  if(mn)mn.style.display='flex';
-  if(ss)ss.style.display='none';
-  if(fc)fc.style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
 
-const data={};const TOTAL=7;let cur=0;
+// ── Data store ──
+var data={};
+var TOTAL=7;
+var cur=0;
 
-const sections=[
-  {id:'s1',eyebrow:'01 — Identity',title:'Personal details',name:'Personal details',desc:'Name, vitals, location, and contact details.',
-   render(){return`<div class="subsec"><div class="subsec-label">Full name</div><div class="two-col"><div class="field"><label>First name</label><input type="text" id="firstName" placeholder="e.g. Priya" oninput="save('firstName',this.value)"></div><div class="field"><label>Last name</label><input type="text" id="lastName" placeholder="e.g. Sharma" oninput="save('lastName',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Age & pronouns</div><div class="two-col"><div class="field"><label>Age</label><input type="number" id="age" placeholder="e.g. 28" min="5" max="100" oninput="save('age',this.value)"></div><div class="field"><label>Pronouns</label><select id="pronouns" onchange="save('pronouns',this.value)"><option value="">Select</option><option>She / her</option><option>He / him</option><option>They / them</option><option>She / they</option><option>He / they</option><option>Any / all</option><option>Prefer not to say</option></select></div></div></div><div class="subsec"><div class="subsec-label">Physical</div><div class="two-col"><div class="field"><label>Height (cm)</label><input type="number" id="height" placeholder="e.g. 165" min="100" max="230" oninput="save('height',this.value)"></div><div class="field"><label>Weight (kg) — optional</label><input type="number" id="weight" placeholder="e.g. 60" oninput="save('weight',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Location</div><div class="two-col"><div class="field"><label>City</label><input type="text" id="city" placeholder="e.g. Mumbai" oninput="save('city',this.value)"></div><div class="field"><label>State</label><select id="state" onchange="save('state',this.value)"><option value="">Select</option><option>Andhra Pradesh</option><option>Delhi</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Punjab</option><option>Rajasthan</option><option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option><option>West Bengal</option><option>Other</option></select></div></div></div><div class="subsec"><div class="subsec-label">Contact</div><div class="two-col"><div class="field"><label>Phone number</label><input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" oninput="save('phone',this.value)"></div><div class="field"><label>Email address</label><input type="email" id="email" placeholder="you@email.com" oninput="save('email',this.value)"></div></div></div>`},
-   restore(){['firstName','lastName','age','height','weight','city','phone','email'].forEach(restoreInput);restoreSelect('pronouns');restoreSelect('state')}
+// ── Sections ──
+var sections=[
+  {
+    id:'s1',eyebrow:'01 — Identity',title:'Personal details',name:'Personal details',
+    desc:'Name, vitals, location, and contact details.',
+    render:function(){return'<div class="subsec"><div class="subsec-label">Full name</div><div class="two-col"><div class="field"><label>First name</label><input type="text" id="firstName" placeholder="e.g. Priya" oninput="save(\'firstName\',this.value)"></div><div class="field"><label>Last name</label><input type="text" id="lastName" placeholder="e.g. Sharma" oninput="save(\'lastName\',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Age &amp; pronouns</div><div class="two-col"><div class="field"><label>Age</label><input type="number" id="age" placeholder="e.g. 28" min="5" max="100" oninput="save(\'age\',this.value)"></div><div class="field"><label>Pronouns</label><select id="pronouns" onchange="save(\'pronouns\',this.value)"><option value="">Select</option><option>She / her</option><option>He / him</option><option>They / them</option><option>She / they</option><option>He / they</option><option>Any / all</option><option>Prefer not to say</option></select></div></div></div><div class="subsec"><div class="subsec-label">Physical</div><div class="two-col"><div class="field"><label>Height (cm)</label><input type="number" id="height" placeholder="e.g. 165" min="100" max="230" oninput="save(\'height\',this.value)"></div><div class="field"><label>Weight (kg) — optional</label><input type="number" id="weight" placeholder="e.g. 60" oninput="save(\'weight\',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Location</div><div class="two-col"><div class="field"><label>City</label><input type="text" id="city" placeholder="e.g. Mumbai" oninput="save(\'city\',this.value)"></div><div class="field"><label>State</label><select id="state" onchange="save(\'state\',this.value)"><option value="">Select</option><option>Andhra Pradesh</option><option>Delhi</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Punjab</option><option>Rajasthan</option><option>Tamil Nadu</option><option>Telangana</option><option>Uttar Pradesh</option><option>West Bengal</option><option>Other</option></select></div></div></div><div class="subsec"><div class="subsec-label">Contact</div><div class="two-col"><div class="field"><label>Phone number</label><input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" oninput="save(\'phone\',this.value)"></div><div class="field"><label>Email address</label><input type="email" id="email" placeholder="you@email.com" oninput="save(\'email\',this.value)"></div></div></div>';},
+    restore:function(){['firstName','lastName','age','height','weight','city','phone','email'].forEach(restoreInput);restoreSelect('pronouns');restoreSelect('state');}
   },
-  {id:'s2',eyebrow:'02 — Overview',title:'At a glance',name:'At a glance',desc:'Experience level, mediums of work, and languages spoken.',
-   render(){return`<div class="subsec"><div class="subsec-label">Overall industry experience</div><div class="radio-row" id="exp-radio"></div></div><div class="subsec"><div class="subsec-label">Primary medium of work</div><div class="check-grid" id="medium-check"></div><div class="cond" id="medium-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="mediumOther" placeholder="e.g. Radio..." oninput="save('mediumOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Indian languages spoken</div><div class="check-grid" id="lang-check"></div><div class="cond" id="lang-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="langOther" placeholder="e.g. Tulu, Konkani..." oninput="save('langOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Foreign languages spoken</div><div class="check-grid" id="foreign-check"></div><div class="cond" id="foreign-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="foreignOther" placeholder="e.g. Arabic, Japanese..." oninput="save('foreignOther',this.value)"></div></div></div>`},
-   init(){makeRadio('exp-radio',['Beginner (0–1 yr)','Emerging (1–3 yrs)','Mid-level (3–6 yrs)','Experienced (6–10 yrs)','Veteran (10+ yrs)'],'experience');makeChecks('medium-check',['Films (Hindi)','Films (Regional)','Web series (OTT)','Short films','Television serials','Theatre','Street plays / Nukkad Natak','Ad films / TVC','Music videos','Corporate films','Documentaries','Voice-over / dubbing','Other'],'medium','Other','medium-other-cond');makeChecks('lang-check',['Hindi','Bengali','Marathi','Tamil','Telugu','Kannada','Malayalam','Gujarati','Punjabi','Urdu','Odia','Assamese','Other'],'lang','Other','lang-other-cond');makeChecks('foreign-check',['English','French','German','Spanish','Italian','Mandarin','Japanese','Russian','Arabic','Portuguese','Other'],'foreign','Other','foreign-other-cond');restoreInput('mediumOther');restoreInput('langOther');restoreInput('foreignOther')}
+  {
+    id:'s2',eyebrow:'02 — Overview',title:'At a glance',name:'At a glance',
+    desc:'Experience level, mediums of work, and languages spoken.',
+    render:function(){return'<div class="subsec"><div class="subsec-label">Overall industry experience</div><div class="radio-row" id="exp-radio"></div></div><div class="subsec"><div class="subsec-label">Primary medium of work</div><div class="check-grid" id="medium-check"></div><div class="cond" id="medium-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="mediumOther" placeholder="e.g. Radio..." oninput="save(\'mediumOther\',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Indian languages spoken</div><div class="check-grid" id="lang-check"></div><div class="cond" id="lang-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="langOther" placeholder="e.g. Tulu, Konkani..." oninput="save(\'langOther\',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Foreign languages spoken</div><div class="check-grid" id="foreign-check"></div><div class="cond" id="foreign-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="foreignOther" placeholder="e.g. Arabic, Japanese..." oninput="save(\'foreignOther\',this.value)"></div></div></div>';},
+    init:function(){
+      makeRadio('exp-radio',['Beginner (0–1 yr)','Emerging (1–3 yrs)','Mid-level (3–6 yrs)','Experienced (6–10 yrs)','Veteran (10+ yrs)'],'experience');
+      makeChecks('medium-check',['Films (Hindi)','Films (Regional)','Web series (OTT)','Short films','Television serials','Theatre','Street plays / Nukkad Natak','Ad films / TVC','Music videos','Corporate films','Documentaries','Voice-over / dubbing','Other'],'medium','Other','medium-other-cond');
+      makeChecks('lang-check',['Hindi','Bengali','Marathi','Tamil','Telugu','Kannada','Malayalam','Gujarati','Punjabi','Urdu','Odia','Assamese','Other'],'lang','Other','lang-other-cond');
+      makeChecks('foreign-check',['English','French','German','Spanish','Italian','Mandarin','Japanese','Russian','Arabic','Portuguese','Other'],'foreign','Other','foreign-other-cond');
+      restoreInput('mediumOther');restoreInput('langOther');restoreInput('foreignOther');
+    }
   },
-  {id:'s3',eyebrow:'03 — Skills',title:'Skills & performance',name:'Skills',desc:'Dance, voice, vehicles, and everything that goes into a role.',
-   render(){return`<div class="subsec"><div class="subsec-label">Dance</div><div class="field"><label>Which dance styles can you perform?</label><div class="field-hint">e.g. Bharatnatyam, Kathak, Hip-hop, Contemporary, Salsa, Folk...</div><input type="text" id="dance" placeholder="Type your dance styles" oninput="save('dance',this.value)" style="margin-top:7px"></div></div><div class="subsec"><div class="subsec-label">Music & voice</div><div class="check-grid" id="music-check"></div><div class="cond" id="music-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="musicOther" placeholder="e.g. Violin, Rap..." oninput="save('musicOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Vehicles you can drive</div><div class="check-grid" id="vehicle-check"></div><div class="cond" id="vehicle-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="vehicleOther" placeholder="e.g. Tractor, Boat..." oninput="save('vehicleOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Other skills</div><div class="check-grid" id="otherskill-check"></div><div class="cond" id="otherskill-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="otherskillOther" placeholder="e.g. Juggling..." oninput="save('otherskillOther',this.value)"></div></div><div style="margin-top:14px"><div class="field-hint" style="margin-bottom:8px">Any additional skills not listed above?</div><div class="tag-list" id="custom-skills-list"></div><div class="tag-add-row"><input type="text" id="custom-skill-input" placeholder="e.g. Calligraphy..."><button class="btn-add" onclick="addTag('custom-skill-input','custom-skills-list','customSkills')">+ Add</button></div></div></div><div class="subsec"><div class="subsec-label">Teaching & coaching</div><div class="field-hint" style="margin-bottom:10px">What do you teach or coach?</div><div class="check-grid" id="teaching-check"></div><div class="cond" id="teaching-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="teachingOther" placeholder="e.g. Music, Yoga..." oninput="save('teachingOther',this.value)"></div></div></div>`},
-   init(){makeChecks('music-check',['Trained singer','Playback singing','Voice acting','Dubbing','Other'],'music','Other','music-other-cond');makeChecks('vehicle-check',['Two-wheeler','Car','Auto-rickshaw','Truck / heavy vehicle','Other'],'vehicle','Other','vehicle-other-cond');makeChecks('otherskill-check',['Mimicry','Stand-up comedy','Improv','Magic / illusion','Acrobatics','Horse riding','Stunts','Other'],'otherskill','Other','otherskill-other-cond');makeChecks('teaching-check',['Acting','Dance','Singing / music','Drama (school)','Choreography','Voice & diction','Screen acting','Stage craft','Other'],'teaching','Other','teaching-other-cond');restoreInput('dance');restoreInput('musicOther');restoreInput('vehicleOther');restoreInput('otherskillOther');restoreInput('teachingOther');restoreTags('custom-skills-list','customSkills')}
+  {
+    id:'s3',eyebrow:'03 — Skills',title:'Skills & performance',name:'Skills',
+    desc:'Dance, voice, vehicles, and everything that goes into a role.',
+    render:function(){return'<div class="subsec"><div class="subsec-label">Dance</div><div class="field"><label>Which dance styles can you perform?</label><div class="field-hint">e.g. Bharatnatyam, Kathak, Hip-hop, Contemporary, Salsa, Folk...</div><input type="text" id="dance" placeholder="Type dance styles here" oninput="save(\'dance\',this.value)" style="margin-top:7px"></div></div><div class="subsec"><div class="subsec-label">Music &amp; voice</div><div class="check-grid" id="music-check"></div><div class="cond" id="music-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="musicOther" placeholder="e.g. Violin, Rap..." oninput="save(\'musicOther\',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Vehicles you can drive</div><div class="check-grid" id="vehicle-check"></div><div class="cond" id="vehicle-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="vehicleOther" placeholder="e.g. Tractor, Boat..." oninput="save(\'vehicleOther\',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Other skills</div><div class="check-grid" id="otherskill-check"></div><div class="cond" id="otherskill-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="otherskillOther" placeholder="e.g. Juggling..." oninput="save(\'otherskillOther\',this.value)"></div></div><div style="margin-top:12px"><div class="field-hint" style="margin-bottom:8px">Any additional skills not listed?</div><div class="tag-list" id="custom-skills-list"></div><div class="tag-add-row"><input type="text" id="custom-skill-input" placeholder="e.g. Calligraphy..."><button class="btn-add" onclick="addTag(\'custom-skill-input\',\'custom-skills-list\',\'customSkills\')">+ Add</button></div></div></div><div class="subsec"><div class="subsec-label">Teaching &amp; coaching</div><div class="field-hint" style="margin-bottom:10px">What do you teach or coach?</div><div class="check-grid" id="teaching-check"></div><div class="cond" id="teaching-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="teachingOther" placeholder="e.g. Music, Yoga..." oninput="save(\'teachingOther\',this.value)"></div></div></div>';},
+    init:function(){
+      makeChecks('music-check',['Trained singer','Playback singing','Voice acting','Dubbing','Other'],'music','Other','music-other-cond');
+      makeChecks('vehicle-check',['Two-wheeler','Car','Auto-rickshaw','Truck / heavy vehicle','Other'],'vehicle','Other','vehicle-other-cond');
+      makeChecks('otherskill-check',['Mimicry','Stand-up comedy','Improv','Magic / illusion','Acrobatics','Horse riding','Stunts','Other'],'otherskill','Other','otherskill-other-cond');
+      makeChecks('teaching-check',['Acting','Dance','Singing / music','Drama (school)','Choreography','Voice & diction','Screen acting','Stage craft','Other'],'teaching','Other','teaching-other-cond');
+      restoreInput('dance');restoreInput('musicOther');restoreInput('vehicleOther');restoreInput('otherskillOther');restoreInput('teachingOther');
+      restoreTags('custom-skills-list','customSkills');
+    }
   },
-  {id:'s4',eyebrow:'04 — Experience',title:'Work experience',name:'Experience',desc:'Roles behind the scenes, theatre groups, and recognition received.',
-   render(){return`<div class="subsec"><div class="subsec-label">Also worked as</div><div class="field-hint" style="margin-bottom:10px">Roles behind the camera or off-stage</div><div class="check-grid" id="also-check"></div><div class="cond" id="also-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="alsoOther" placeholder="e.g. Producer..." oninput="save('alsoOther',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Theatre associations</div><div class="field-hint" style="margin-bottom:8px">Groups or troupes you have worked with or performed in</div><div class="tag-list" id="theatre-list"></div><div class="tag-add-row"><input type="text" id="theatre-input" placeholder="e.g. Prithvi Theatre..."><button class="btn-add" onclick="addTag('theatre-input','theatre-list','theatreGroups')">+ Add</button></div></div><div class="subsec"><div class="subsec-label">Certifications & awards</div><div class="field-hint" style="margin-bottom:8px">Certificates, awards, or recognitions received</div><div class="tag-list" id="cert-list"></div><div class="tag-add-row"><input type="text" id="cert-input" placeholder="e.g. Best Actor — Prithvi Festival 2022..."><button class="btn-add" onclick="addTag('cert-input','cert-list','certifications')">+ Add</button></div></div>`},
-   init(){makeChecks('also-check',['Assistant Director (AD)','Production intern','Choreographer','Casting coordinator','Script supervisor','Production designer','Costume stylist','Makeup artist','Behind-camera crew','Dance teacher','Acting coach','Other'],'also','Other','also-other-cond');restoreInput('alsoOther');restoreTags('theatre-list','theatreGroups');restoreTags('cert-list','certifications')}
+  {
+    id:'s4',eyebrow:'04 — Experience',title:'Work experience',name:'Experience',
+    desc:'Roles behind the scenes, theatre groups, and recognition received.',
+    render:function(){return'<div class="subsec"><div class="subsec-label">Also worked as</div><div class="field-hint" style="margin-bottom:10px">Roles behind the camera or off-stage</div><div class="check-grid" id="also-check"></div><div class="cond" id="also-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="alsoOther" placeholder="e.g. Producer..." oninput="save(\'alsoOther\',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Theatre associations</div><div class="field-hint" style="margin-bottom:8px">Groups or troupes worked with or performed in</div><div class="tag-list" id="theatre-list"></div><div class="tag-add-row"><input type="text" id="theatre-input" placeholder="e.g. Prithvi Theatre..."><button class="btn-add" onclick="addTag(\'theatre-input\',\'theatre-list\',\'theatreGroups\')">+ Add</button></div></div><div class="subsec"><div class="subsec-label">Certifications &amp; awards</div><div class="field-hint" style="margin-bottom:8px">Certificates, awards, or recognitions received</div><div class="tag-list" id="cert-list"></div><div class="tag-add-row"><input type="text" id="cert-input" placeholder="e.g. Best Actor — Prithvi Festival 2022..."><button class="btn-add" onclick="addTag(\'cert-input\',\'cert-list\',\'certifications\')">+ Add</button></div></div>';},
+    init:function(){
+      makeChecks('also-check',['Assistant Director (AD)','Production intern','Choreographer','Casting coordinator','Script supervisor','Production designer','Costume stylist','Makeup artist','Behind-camera crew','Dance teacher','Acting coach','Other'],'also','Other','also-other-cond');
+      restoreInput('alsoOther');restoreTags('theatre-list','theatreGroups');restoreTags('cert-list','certifications');
+    }
   },
-  {id:'s5',eyebrow:'05 — Training',title:'Education & training',name:'Training',desc:'Academic background, training institutes, and workshops attended.',
-   render(){return`<div class="subsec"><div class="subsec-label">Formal education</div><div class="two-col"><div class="field"><label>Highest qualification</label><select id="qualification" onchange="save('qualification',this.value)"><option value="">Select</option><option>Secondary school (Class 10)</option><option>Higher secondary (Class 12)</option><option>Diploma</option><option>Bachelor's degree</option><option>Master's degree</option><option>PhD / Doctoral</option><option>Other</option></select></div><div class="field"><label>Stream / subject area</label><select id="stream" onchange="save('stream',this.value)"><option value="">Select</option><option>Performing arts</option><option>Fine arts</option><option>Film studies</option><option>Mass communication</option><option>Literature / humanities</option><option>Science</option><option>Commerce</option><option>Engineering</option><option>Other</option></select></div></div></div><div class="subsec"><div class="subsec-label">Acting & performance training</div><div class="field"><label>Where did you train?</label><div class="field-hint">e.g. NSD, FTII, Barry John Acting Studio, online course...</div><input type="text" id="training" placeholder="Name of school, institute, or trainer" oninput="save('training',this.value)" style="margin-top:7px"></div></div><div class="subsec"><div class="subsec-label">Workshops attended</div><div class="field"><label>Which types of workshops have you attended?</label><div class="field-hint">e.g. voice & diction, audition technique, screen acting, movement...</div><input type="text" id="workshops" placeholder="List workshop types" oninput="save('workshops',this.value)" style="margin-top:7px"></div></div>`},
-   restore(){restoreSelect('qualification');restoreSelect('stream');restoreInput('training');restoreInput('workshops')}
+  {
+    id:'s5',eyebrow:'05 — Training',title:'Education & training',name:'Training',
+    desc:'Academic background, training institutes, and workshops attended.',
+    render:function(){return'<div class="subsec"><div class="subsec-label">Formal education</div><div class="two-col"><div class="field"><label>Highest qualification</label><select id="qualification" onchange="save(\'qualification\',this.value)"><option value="">Select</option><option>Secondary school (Class 10)</option><option>Higher secondary (Class 12)</option><option>Diploma</option><option>Bachelor\'s degree</option><option>Master\'s degree</option><option>PhD / Doctoral</option><option>Other</option></select></div><div class="field"><label>Stream / subject area</label><select id="stream" onchange="save(\'stream\',this.value)"><option value="">Select</option><option>Performing arts</option><option>Fine arts</option><option>Film studies</option><option>Mass communication</option><option>Literature / humanities</option><option>Science</option><option>Commerce</option><option>Engineering</option><option>Other</option></select></div></div></div><div class="subsec"><div class="subsec-label">Acting &amp; performance training</div><div class="field"><label>Where did you train?</label><div class="field-hint">e.g. NSD, FTII, Barry John Acting Studio, online course...</div><input type="text" id="training" placeholder="School, institute, or trainer" oninput="save(\'training\',this.value)" style="margin-top:7px"></div></div><div class="subsec"><div class="subsec-label">Workshops attended</div><div class="field"><label>Types of workshops attended</label><div class="field-hint">e.g. voice & diction, audition technique, screen acting, movement...</div><input type="text" id="workshops" placeholder="List workshop types" oninput="save(\'workshops\',this.value)" style="margin-top:7px"></div></div>';},
+    restore:function(){restoreSelect('qualification');restoreSelect('stream');restoreInput('training');restoreInput('workshops');}
   },
-  {id:'s6',eyebrow:'06 — Online',title:'Online presence',name:'Online',desc:'Your social media profiles and any other links to share.',
-   render(){return`<div class="subsec"><div class="subsec-label">Social & professional profiles</div><div class="field-hint" style="margin-bottom:12px">Enter the full URL for each profile you have</div><div class="two-col"><div class="field"><label>Instagram</label><input type="url" id="instagram" placeholder="https://instagram.com/..." oninput="save('instagram',this.value)"></div><div class="field"><label>YouTube</label><input type="url" id="youtube" placeholder="https://youtube.com/..." oninput="save('youtube',this.value)"></div><div class="field"><label>IMDb</label><input type="url" id="imdb" placeholder="https://imdb.com/name/..." oninput="save('imdb',this.value)"></div><div class="field"><label>LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/..." oninput="save('linkedin',this.value)"></div><div class="field"><label>Facebook</label><input type="url" id="facebook" placeholder="https://facebook.com/..." oninput="save('facebook',this.value)"></div><div class="field"><label>Personal website</label><input type="url" id="website" placeholder="https://yourname.com" oninput="save('website',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Other profile links</div><div class="field-hint" style="margin-bottom:8px">Casting sites, portfolio pages, or any other links</div><div class="tag-list" id="other-links-list"></div><div class="tag-add-row"><input type="url" id="other-link-input" placeholder="https://..."><button class="btn-add" onclick="addTag('other-link-input','other-links-list','otherLinks')">+ Add</button></div></div>`},
-   restore(){['instagram','youtube','imdb','linkedin','facebook','website'].forEach(restoreInput);restoreTags('other-links-list','otherLinks')}
+  {
+    id:'s6',eyebrow:'06 — Online',title:'Online presence',name:'Online',
+    desc:'Social media profiles and any other links to share.',
+    render:function(){return'<div class="subsec"><div class="subsec-label">Social &amp; professional profiles</div><div class="field-hint" style="margin-bottom:12px">Enter the full URL for each profile</div><div class="two-col"><div class="field"><label>Instagram</label><input type="url" id="instagram" placeholder="https://instagram.com/..." oninput="save(\'instagram\',this.value)"></div><div class="field"><label>YouTube</label><input type="url" id="youtube" placeholder="https://youtube.com/..." oninput="save(\'youtube\',this.value)"></div><div class="field"><label>IMDb</label><input type="url" id="imdb" placeholder="https://imdb.com/name/..." oninput="save(\'imdb\',this.value)"></div><div class="field"><label>LinkedIn</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/..." oninput="save(\'linkedin\',this.value)"></div><div class="field"><label>Facebook</label><input type="url" id="facebook" placeholder="https://facebook.com/..." oninput="save(\'facebook\',this.value)"></div><div class="field"><label>Personal website</label><input type="url" id="website" placeholder="https://yourname.com" oninput="save(\'website\',this.value)"></div></div></div><div class="subsec"><div class="subsec-label">Other links</div><div class="field-hint" style="margin-bottom:8px">Casting sites, portfolio pages, or any other links</div><div class="tag-list" id="other-links-list"></div><div class="tag-add-row"><input type="url" id="other-link-input" placeholder="https://..."><button class="btn-add" onclick="addTag(\'other-link-input\',\'other-links-list\',\'otherLinks\')">+ Add</button></div></div>';},
+    restore:function(){['instagram','youtube','imdb','linkedin','facebook','website'].forEach(restoreInput);restoreTags('other-links-list','otherLinks');}
   },
-  {id:'s7',eyebrow:'07 — Memberships',title:'Union & guild membership',name:'Memberships',desc:'Industry unions or guilds — if applicable.',
-   render(){return`<div class="subsec"><div class="subsec-label">Memberships</div><div class="check-grid" id="union-check"></div><div class="cond" id="union-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="unionOther" placeholder="e.g. Film Writers' Association..." oninput="save('unionOther',this.value)"></div></div></div>`},
-   init(){makeChecks('union-check',["CINTAA (Cine & TV Artists' Association)","IPTA (Indian People's Theatre Association)","Film Writers' Association",'None','Other'],'union','Other','union-other-cond');restoreInput('unionOther')}
+  {
+    id:'s7',eyebrow:'07 — Memberships',title:'Union & guild membership',name:'Memberships',
+    desc:'Industry unions or guilds — if applicable.',
+    render:function(){return'<div class="subsec"><div class="subsec-label">Memberships</div><div class="check-grid" id="union-check"></div><div class="cond" id="union-other-cond"><div class="field" style="margin-top:0"><label>Please specify</label><input type="text" id="unionOther" placeholder="e.g. Film Writers\' Association..." oninput="save(\'unionOther\',this.value)"></div></div></div>';},
+    init:function(){
+      makeChecks('union-check',["CINTAA (Cine & TV Artists' Association)","IPTA (Indian People's Theatre Association)","Film Writers' Association","None","Other"],'union','Other','union-other-cond');
+      restoreInput('unionOther');
+    }
   }
 ];
 
-function save(k,v){data[k]=v}
-function restoreInput(id){const el=document.getElementById(id);if(el&&data[id])el.value=data[id]}
-function restoreSelect(id){const el=document.getElementById(id);if(el&&data[id])el.value=data[id]}
-function restoreTags(lid,key){if(!data[key]||!data[key].length)return;const l=document.getElementById(lid);if(!l)return;l.innerHTML='';data[key].forEach(v=>appendTag(l,v,key))}
-function makeRadio(cid,opts,key){const el=document.getElementById(cid);if(!el)return;el.innerHTML=opts.map(o=>`<span class="radio-pill${data[key]===o?' selected':''}" onclick="pickRadio(this,'${key}')">${o}</span>`).join('')}
-function pickRadio(el,key){el.closest('.radio-row').querySelectorAll('.radio-pill').forEach(p=>p.classList.remove('selected'));el.classList.add('selected');data[key]=el.textContent}
-function makeChecks(cid,opts,key,ov,cid2){const el=document.getElementById(cid);if(!el)return;const sv=data[key]||[];el.innerHTML=opts.map(o=>{const ch=sv.includes(o);return`<label class="check-item${ch?' checked':''}"><input type="checkbox" ${ch?'checked':''} onchange="toggleCheck(this,'${key}','${o}','${ov}','${cid2}')"> ${o}</label>`}).join('');if(ov&&cid2){const c=document.getElementById(cid2);if(c)c.classList.toggle('show',sv.includes(ov))}}
-function toggleCheck(cb,key,val,ov,cid2){if(!data[key])data[key]=[];if(cb.checked){if(!data[key].includes(val))data[key].push(val);cb.parentElement.classList.add('checked')}else{data[key]=data[key].filter(v=>v!==val);cb.parentElement.classList.remove('checked')}if(val===ov&&cid2){const c=document.getElementById(cid2);if(c)c.classList.toggle('show',cb.checked)}}
-function appendTag(le,val,key){const t=document.createElement('span');t.className='tag';t.innerHTML=`${val}<span class="tag-remove" onclick="removeTag(this,'${key}')">×</span>`;le.appendChild(t)}
-function addTag(iid,lid,key){const i=document.getElementById(iid);const l=document.getElementById(lid);const v=i.value.trim();if(!v)return;if(!data[key])data[key]=[];data[key].push(v);appendTag(l,v,key);i.value=''}
-function removeTag(sp,key){const t=sp.parentElement;const v=t.textContent.slice(0,-1).trim();if(data[key])data[key]=data[key].filter(x=>x!==v);t.remove()}
+// ── Helpers ──
+function save(k,v){data[k]=v;}
+function restoreInput(id){var el=document.getElementById(id);if(el&&data[id])el.value=data[id];}
+function restoreSelect(id){var el=document.getElementById(id);if(el&&data[id])el.value=data[id];}
+function restoreTags(listId,key){
+  if(!data[key]||!data[key].length)return;
+  var list=document.getElementById(listId);
+  if(!list)return;
+  list.innerHTML='';
+  data[key].forEach(function(v){appendTag(list,v,key);});
+}
+function makeRadio(cid,opts,key){
+  var el=document.getElementById(cid);if(!el)return;
+  el.innerHTML=opts.map(function(o){
+    return'<span class="radio-pill'+(data[key]===o?' selected':'')+'" onclick="pickRadio(this,\''+key+'\')">'+o+'</span>';
+  }).join('');
+}
+function pickRadio(el,key){
+  el.closest('.radio-row').querySelectorAll('.radio-pill').forEach(function(p){p.classList.remove('selected');});
+  el.classList.add('selected');
+  data[key]=el.textContent;
+}
+function makeChecks(cid,opts,key,ov,cid2){
+  var el=document.getElementById(cid);if(!el)return;
+  var sv=data[key]||[];
+  el.innerHTML=opts.map(function(o){
+    var ch=sv.indexOf(o)>-1;
+    return'<label class="check-item'+(ch?' checked':'')+'"><input type="checkbox"'+(ch?' checked':'')+' onchange="toggleCheck(this,\''+key+'\',\''+o+'\',\''+ov+'\',\''+cid2+'\')"> '+o+'</label>';
+  }).join('');
+  if(ov&&cid2){var c=document.getElementById(cid2);if(c)c.classList.toggle('show',sv.indexOf(ov)>-1);}
+}
+function toggleCheck(cb,key,val,ov,cid2){
+  if(!data[key])data[key]=[];
+  if(cb.checked){if(data[key].indexOf(val)<0)data[key].push(val);cb.parentElement.classList.add('checked');}
+  else{data[key]=data[key].filter(function(v){return v!==val;});cb.parentElement.classList.remove('checked');}
+  if(val===ov&&cid2){var c=document.getElementById(cid2);if(c)c.classList.toggle('show',cb.checked);}
+}
+function appendTag(le,val,key){
+  var t=document.createElement('span');t.className='tag';
+  t.innerHTML=val+'<span class="tag-remove" onclick="removeTag(this,\''+key+'\')">×</span>';
+  le.appendChild(t);
+}
+function addTag(inputId,listId,key){
+  var inp=document.getElementById(inputId);
+  var list=document.getElementById(listId);
+  var v=inp.value.trim();if(!v)return;
+  if(!data[key])data[key]=[];
+  data[key].push(v);appendTag(list,v,key);inp.value='';
+}
+function removeTag(sp,key){
+  var t=sp.parentElement;
+  var v=t.textContent.slice(0,-1).trim();
+  if(data[key])data[key]=data[key].filter(function(x){return x!==v;});
+  t.remove();
+}
 
+// ── Form navigation ──
 function showSection(idx){
-  const s=sections[idx];
-  document.getElementById('form-container').style.display='block';
-  document.getElementById('success-screen').style.display='none';
-  document.getElementById('form-container').innerHTML=`<div class="feyebrow">${s.eyebrow}</div><div class="ftitle">${s.title}</div><div class="fdesc">${s.desc}</div>${s.render()}<div class="nav-row"><button class="btn-nav" onclick="navigate(-1)" ${idx===0?'disabled':''}>← Back</button><button class="btn-nav primary" onclick="navigate(1)">${idx===TOTAL-1?'Submit':'Next →'}</button></div>`;
-  if(s.init)s.init();if(s.restore)s.restore();
-  document.getElementById('fpb').style.width=((idx+1)/TOTAL*100)+'%';
-  document.getElementById('form-step-label').textContent=`Step ${idx+1} of ${TOTAL}`;
-  document.getElementById('form-section-name').textContent=s.name;
+  var s=sections[idx];
+  var fc=document.getElementById('form-container');
+  var ss=document.getElementById('success-screen');
+  if(fc)fc.style.display='block';
+  if(ss)ss.style.display='none';
+  if(!fc)return;
+  fc.innerHTML='<div class="feyebrow">'+s.eyebrow+'</div><div class="ftitle">'+s.title+'</div><div class="fdesc">'+s.desc+'</div>'+s.render()+'<div class="nav-row"><button class="btn-nav" onclick="navigate(-1)"'+(idx===0?' disabled':'')+'>← Back</button><button class="btn-nav primary" onclick="navigate(1)">'+(idx===TOTAL-1?'Submit':'Next →')+'</button></div>';
+  if(s.init)s.init();
+  if(s.restore)s.restore();
+  var pb=document.getElementById('form-pb');
+  if(pb)pb.style.width=((idx+1)/TOTAL*100)+'%';
+  var sl=document.getElementById('form-step-label');
+  if(sl)sl.textContent='Step '+(idx+1)+' of '+TOTAL;
+  var sn=document.getElementById('form-step-name');
+  if(sn)sn.textContent=s.name;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function navigate(dir){
-  const next=cur+dir;if(next<0)return;
-  if(next>=TOTAL){document.getElementById('form-container').style.display='none';document.getElementById('success-screen').style.display='block';document.getElementById('fpb').style.width='100%';document.getElementById('form-step-label').textContent='Complete';document.getElementById('form-section-name').textContent='Done';window.scrollTo({top:0,behavior:'smooth'});return}
+  var next=cur+dir;if(next<0)return;
+  if(next>=TOTAL){
+    var fc=document.getElementById('form-container');
+    var ss=document.getElementById('success-screen');
+    if(fc)fc.style.display='none';
+    if(ss)ss.style.display='block';
+    var pb=document.getElementById('form-pb');if(pb)pb.style.width='100%';
+    var sl=document.getElementById('form-step-label');if(sl)sl.textContent='Complete';
+    var sn=document.getElementById('form-step-name');if(sn)sn.textContent='Done';
+    window.scrollTo({top:0,behavior:'smooth'});return;
+  }
   cur=next;showSection(cur);
 }
 
+// ── PDF ──
 function generatePDF(){
-  const{jsPDF}=window.jspdf;const doc=new jsPDF({unit:'mm',format:'a4'});
-  const W=210,ml=20,mr=20,cW=W-ml-mr;let y=22;const pH=297,bm=22;
-  function cp(n){if(y+n>pH-bm){doc.addPage();y=22}}
-  function hr(c){doc.setDrawColor(...c);doc.setLineWidth(0.3);doc.line(ml,y,W-mr,y);y+=5}
-  const fn=((data.firstName||'')+' '+(data.lastName||'')).trim()||'Actor Portfolio';
-  doc.setFont('helvetica','bold');doc.setFontSize(24);doc.setTextColor(26,10,46);doc.text(fn,ml,y);y+=7;hr([124,58,237]);y+=2;
-  function qa(q,a){if(!a||a===''||(Array.isArray(a)&&a.length===0))return;const as=Array.isArray(a)?a.join(', '):String(a);cp(14);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(124,106,154);doc.text(q.toUpperCase(),ml,y);y+=4;doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(42,18,62);doc.splitTextToSize(as,cW).forEach(l=>{cp(6);doc.text(l,ml,y);y+=5.5});y+=2}
-  function sh(t){cp(18);y+=4;doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(124,58,237);doc.text(t,ml,y);y+=4;hr([221,213,245])}
+  if(!window.jspdf){alert('PDF library is still loading. Please try again in a moment.');return;}
+  var jsPDF=window.jspdf.jsPDF;
+  var doc=new jsPDF({unit:'mm',format:'a4'});
+  var W=210,ml=20,mr=20,cW=W-ml-mr,y=22,pH=297,bm=22;
+  function cp(n){if(y+n>pH-bm){doc.addPage();y=22;}}
+  function hr(c){doc.setDrawColor(c[0],c[1],c[2]);doc.setLineWidth(0.3);doc.line(ml,y,W-mr,y);y+=5;}
+  var fn=((data.firstName||'')+' '+(data.lastName||'')).trim()||'Actor Portfolio';
+  doc.setFont('helvetica','bold');doc.setFontSize(24);doc.setTextColor(11,11,15);doc.text(fn,ml,y);y+=7;
+  hr([255,106,0]);y+=2;
+  function qa(q,a){
+    if(!a||a===''||(Array.isArray(a)&&a.length===0))return;
+    var as=Array.isArray(a)?a.join(', '):String(a);
+    cp(14);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(156,163,175);doc.text(q.toUpperCase(),ml,y);y+=4;
+    doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(11,11,15);
+    doc.splitTextToSize(as,cW).forEach(function(l){cp(6);doc.text(l,ml,y);y+=5.5;});y+=2;
+  }
+  function sh(t){
+    cp(18);y+=4;doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(255,106,0);doc.text(t,ml,y);y+=4;hr([230,230,230]);
+  }
   sh('Personal details');qa('First name',data.firstName);qa('Last name',data.lastName);qa('Age',data.age);qa('Pronouns',data.pronouns);qa('Height (cm)',data.height);qa('Weight (kg)',data.weight);qa('City',data.city);qa('State',data.state);qa('Phone',data.phone);qa('Email',data.email);
-  sh('At a glance');qa('Industry experience',data.experience);qa('Primary medium',data.medium);if(data.medium&&data.medium.includes('Other'))qa('Medium (other)',data.mediumOther);qa('Indian languages',data.lang);if(data.lang&&data.lang.includes('Other'))qa('Language (other)',data.langOther);qa('Foreign languages',data.foreign);if(data.foreign&&data.foreign.includes('Other'))qa('Foreign language (other)',data.foreignOther);
-  sh('Skills & performance');qa('Dance styles',data.dance);qa('Music & voice',data.music);if(data.music&&data.music.includes('Other'))qa('Music (other)',data.musicOther);qa('Vehicles',data.vehicle);if(data.vehicle&&data.vehicle.includes('Other'))qa('Vehicle (other)',data.vehicleOther);qa('Other skills',data.otherskill);if(data.otherskill&&data.otherskill.includes('Other'))qa('Skills (other)',data.otherskillOther);qa('Additional skills',data.customSkills);qa('Teaching & coaching',data.teaching);if(data.teaching&&data.teaching.includes('Other'))qa('Teaching (other)',data.teachingOther);
-  sh('Work experience');qa('Also worked as',data.also);if(data.also&&data.also.includes('Other'))qa('Also worked as (other)',data.alsoOther);qa('Theatre associations',data.theatreGroups);qa('Certifications & awards',data.certifications);
+  sh('At a glance');qa('Industry experience',data.experience);qa('Primary medium',data.medium);if(data.medium&&data.medium.indexOf('Other')>-1)qa('Medium (other)',data.mediumOther);qa('Indian languages',data.lang);if(data.lang&&data.lang.indexOf('Other')>-1)qa('Language (other)',data.langOther);qa('Foreign languages',data.foreign);if(data.foreign&&data.foreign.indexOf('Other')>-1)qa('Foreign language (other)',data.foreignOther);
+  sh('Skills & performance');qa('Dance styles',data.dance);qa('Music & voice',data.music);if(data.music&&data.music.indexOf('Other')>-1)qa('Music (other)',data.musicOther);qa('Vehicles',data.vehicle);if(data.vehicle&&data.vehicle.indexOf('Other')>-1)qa('Vehicle (other)',data.vehicleOther);qa('Other skills',data.otherskill);if(data.otherskill&&data.otherskill.indexOf('Other')>-1)qa('Skills (other)',data.otherskillOther);qa('Additional skills',data.customSkills);qa('Teaching & coaching',data.teaching);if(data.teaching&&data.teaching.indexOf('Other')>-1)qa('Teaching (other)',data.teachingOther);
+  sh('Work experience');qa('Also worked as',data.also);if(data.also&&data.also.indexOf('Other')>-1)qa('Also worked as (other)',data.alsoOther);qa('Theatre associations',data.theatreGroups);qa('Certifications & awards',data.certifications);
   sh('Education & training');qa('Highest qualification',data.qualification);qa('Stream',data.stream);qa('Training',data.training);qa('Workshops',data.workshops);
-  sh('Online presence');qa('Instagram',data.instagram);qa('YouTube',data.youtube);qa('IMDb',data.imdb);qa('LinkedIn',data.linkedin);qa('Facebook',data.fac
+  sh('Online presence');qa('Instagram',data.instagram);qa('YouTube',data.youtube);qa('IMDb',data.imdb);qa('LinkedIn',data.linkedin);qa('Facebook',data.facebook);qa('Website',data.website);qa('Other links',data.otherLinks);
+  sh('Union & guild membership');qa('Memberships',data.union);if(data.union&&data.union.indexOf('Other')>-1)qa('Membership (other)',data.unionOther);
+  var tp=doc.internal.getNumberOfPages();
+  for(var i=1;i<=tp;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(200,200,200);doc.text('Arc Portfolio — '+fn,ml,pH-10);doc.text(i+' / '+tp,W-mr,pH-10,{align:'right'});}
+  var sn2=fn.replace(/\s+/g,'_').replace(/[^a-zA-Z0-9_]/g,'')||'Actor';
+  doc.save('ActorPortfolio_'+sn2+'.pdf');
+}
+
+// ── Fire appready event so showForm can call showSection ──
+document.dispatchEvent(new Event('appready'));
+
+</script>
+</body>
+</html>
