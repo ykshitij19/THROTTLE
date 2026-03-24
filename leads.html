@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arc — Actor Portfolio Websites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  // ── Replace with your EmailJS Public Key from emailjs.com → Account → API Keys ──
+  (function(){
+    emailjs.init("YOUR_PUBLIC_KEY"); // <-- paste your EmailJS public key here
+  })();
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0B0B0F;
+  --white:#FFFFFF;
+  --soft:#F5F5F5;
+  --orange:#FF6A00;
+  --orange-h:#FF8A3D;
+  --grey:#9CA3AF;
+  --border:#222228;
+  --border-light:#E5E5E5;
+  --radius:6px;
+  --radius-lg:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white);font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(11,11,15,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.nav-logo-word{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-.02em}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:13px;color:var(--grey);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--orange);color:var(--white);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 18px;border-radius:var(--radius);border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--orange-h)}
+
+/* ── BUTTONS ── */
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--white);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:background .2s;white-space:nowrap;text-decoration:none}
+.btn-primary:hover{background:var(--orange-h)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--grey);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;padding:14px 24px;border-radius:var(--radius);border:1px solid var(--border);cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
+.btn-ghost:hover{border-color:#444;color:var(--white)}
+.btn-white{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--black);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:all .2s}
+.btn-white:hover{background:var(--soft)}
+
+/* ── HERO ── */
+#home{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 1.5rem 5rem;position:relative;overflow:hidden}
+.hero-arc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.05}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-tag{display:inline-flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem}
+.hero-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+h1.hero-h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem,6vw,4rem);line-height:1.06;letter-spacing:-.03em;color:var(--white);margin-bottom:1.25rem}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:var(--grey);font-weight:300;line-height:1.8;max-width:500px;margin:0 auto 1.5rem}
+.hero-trust{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--orange);font-weight:500;margin-bottom:2.25rem}
+.hero-trust-icon{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--orange);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* ── HOW IT WORKS ── */
+#how{background:var(--soft);padding:6rem 1.5rem;color:var(--black)}
+.how-inner{max-width:680px;margin:0 auto}
+.section-tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.6rem}
+h2.section-h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.1;letter-spacing:-.025em;color:var(--black);margin-bottom:.75rem}
+.section-lead{font-size:15px;color:#555;font-weight:300;line-height:1.75;margin-bottom:3rem}
+.steps{display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:44px 1fr;gap:0}
+.step-spine{display:flex;flex-direction:column;align-items:center;padding-top:2px}
+.step-circle{width:32px;height:32px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--orange)}
+.step-line{width:1px;flex:1;background:#ccc;margin:5px 0}
+.step:last-child .step-line{display:none}
+.step-body{padding:0 0 2.5rem 1rem}
+.step-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--black);margin-bottom:.3rem;padding-top:5px}
+.step-desc{font-size:13px;color:#555;font-weight:300;line-height:1.7}
+.step-note{margin-top:.6rem;background:#fff;border:1px solid var(--border-light);border-radius:6px;padding:.6rem .9rem;font-size:12px;color:#777;display:inline-block}
+
+/* ── PROMISE SECTION ── */
+#promise{background:var(--black);padding:5rem 1.5rem;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.promise-inner{max-width:560px;margin:0 auto}
+.promise-text{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--white);font-weight:300;line-height:1.85}
+.promise-text strong{color:var(--orange);font-weight:500}
+
+/* ── CTA BAND (lead gen form) ── */
+#cta-band{background:var(--orange);padding:5.5rem 1.5rem;text-align:center}
+.cta-inner{max-width:520px;margin:0 auto}
+.cta-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.5rem);color:var(--white);letter-spacing:-.025em;margin-bottom:.75rem;line-height:1.1}
+.cta-sub{font-size:15px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.7;margin-bottom:2rem}
+
+/* ── LEAD GEN FORM ── */
+.lead-form{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:0 auto}
+.lead-form input{width:100%;height:48px;padding:0 16px;border:none;border-radius:var(--radius);background:rgba(255,255,255,0.15);color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;transition:background .2s;outline:none}
+.lead-form input::placeholder{color:rgba(255,255,255,0.5)}
+.lead-form input:focus{background:rgba(255,255,255,0.22)}
+.lead-form-btn{width:100%;height:50px;background:var(--black);color:var(--white);border:none;border-radius:var(--radius);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:4px}
+.lead-form-btn:hover{background:#1a1a22}
+.lead-form-btn:disabled{opacity:.5;cursor:not-allowed}
+.lead-form-note{font-size:12px;color:rgba(255,255,255,0.45);margin-top:.5rem;text-align:center}
+/* success state */
+.lead-success{display:none;text-align:center;padding:1rem 0}
+.lead-success-icon{font-size:2rem;margin-bottom:.6rem}
+.lead-success-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--white);margin-bottom:.4rem;letter-spacing:-.02em}
+.lead-success-desc{font-size:14px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.6}
+
+/* ── EARLY TRUST ── */
+#early{background:var(--soft);padding:5rem 1.5rem;text-align:center}
+.early-inner{max-width:500px;margin:0 auto}
+.early-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.4rem,3vw,1.9rem);color:var(--black);letter-spacing:-.02em;margin-bottom:.75rem;line-height:1.15}
+.early-body{font-size:15px;color:#555;font-weight:300;line-height:1.75}
+.early-badge{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:1.5rem}
+.early-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
+
+/* ── CONTACT ── */
+#contact{background:var(--black);padding:5rem 1.5rem;text-align:center}
+.contact-inner{max-width:420px;margin:0 auto}
+.contact-h{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:var(--white);letter-spacing:-.02em;margin-bottom:.5rem}
+.contact-sub{font-size:14px;color:var(--grey);font-weight:300;line-height:1.7;margin-bottom:1.75rem}
+.contact-pill{display:inline-flex;align-items:center;gap:10px;background:#111117;border:1px solid var(--border);border-radius:999px;padding:.7rem 1.4rem;font-size:14px;color:var(--white);text-decoration:none;transition:border-color .2s}
+.contact-pill:hover{border-color:#444}
+.contact-pill-icon{width:28px;height:28px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-note{font-size:12px;color:#444;margin-top:1.25rem;font-weight:300}
+
+/* ── FOOTER ── */
+footer{background:var(--black);padding:2rem 1.5rem;text-align:center;border-top:1px solid var(--border)}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--white);letter-spacing:-.01em;margin-bottom:.3rem}
+.footer-sub{font-size:12px;color:#333;margin-bottom:.35rem}
+.footer-team{font-size:11px;color:#2a2a30;letter-spacing:.04em}
+
+@media(max-width:768px){nav{padding:0 1rem}.nav-links{display:none}}
+@media(max-width:540px){.lead-form{max-width:100%}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#home">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <path d="M3 22 Q9 22 14 14 Q19 7 24 2" stroke="#FF6A00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <line x1="3" y1="22" x2="24" y2="22" stroke="#333" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-word">arc</span>
+  </a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#early">Early offer</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('cta-band').scrollIntoView({behavior:'smooth'})">Get started →</button>
+</nav>
+
+<!-- ══ LANDING PAGE ══ -->
+<div id="landing-page">
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-arc">
+      <svg width="700" height="700" viewBox="0 0 700 700" fill="none">
+        <path d="M80 600 Q200 600 350 400 Q500 200 600 60" stroke="#FF6A00" stroke-width="160" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Actor Portfolio Websites</div>
+      <h1 class="hero-h1">Put your work<br>in the right frame.</h1>
+      <p class="hero-sub">We design clean, focused portfolio websites for actors — so casting directors and agencies see exactly what matters.</p>
+      <div class="hero-trust"><div class="hero-trust-icon">✓</div>Pay only after your portfolio is ready.</div>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('cta-band').scrollIntoView({behavior:'smooth'})">Get started</button>
+        <a class="btn-ghost" href="#how">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="how-inner">
+      <div class="section-tag">How it works</div>
+      <h2 class="section-h2">Simple. Three steps.</h2>
+      <p class="section-lead">You focus on your craft. We handle the rest.</p>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-spine">
+            <div class="step-circle"><span class="step-num">01</span></div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Give us the details</div>
+            <div class="step-desc">Fill in your name, number, and email in the form below. That's all we need to get started.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-spine">
+            <div class="step-circle"><span class="step-num">02</span></div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">We'll reach out within 24 hours</div>
+            <div class="step-desc">One of us will call or message you to understand what you need. Let's have a real conversation — no forms, no back-and-forth emails.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-spine">
+            <div class="step-circle"><span class="step-num">03</span></div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <div class="step-title">Be ready with everything</div>
+            <div class="step-desc">Before the call, gather all your links, photos, showreel, credits — everything. More is better. We'll help you cut it down to what matters.</div>
+            <div class="step-note">Showreel · Headshots · Credits · Instagram · IMDb · Anything else</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <section id="promise">
+    <div class="promise-inner">
+      <p class="promise-text">
+        A portfolio that does nothing is worse than no portfolio.
+        Yours will be <strong>purposeful, sharp, and built to be seen</strong> —
+        not just a place where your work sits quietly.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA / LEAD GEN FORM -->
+  <section id="cta-band">
+    <div class="cta-inner">
+      <h2 class="cta-h">Let's build your arc.</h2>
+      <p class="cta-sub">Leave your details and we'll be in touch within 24 hours.</p>
+
+      <!-- Lead gen form — powered by EmailJS -->
+      <div class="lead-form" id="lead-form-wrap">
+        <input type="text"  id="lead-name"  placeholder="Your name"         required autocomplete="name">
+        <input type="tel"   id="lead-phone" placeholder="Phone number"      required autocomplete="tel">
+        <input type="email" id="lead-email" placeholder="Email address"     required autocomplete="email">
+        <button class="lead-form-btn" id="lead-submit-btn" onclick="submitLead()">Send — we'll contact you →</button>
+        <p class="lead-form-note" id="lead-form-msg"></p>
+      </div>
+
+      <!-- Shown after successful submission -->
+      <div class="lead-success" id="lead-success">
+        <div class="lead-success-icon">✓</div>
+        <div class="lead-success-title">Got it. Talk soon.</div>
+        <div class="lead-success-desc">We'll reach out within 24 hours.<br>Start gathering your links and showreel in the meantime.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EARLY OFFER -->
+  <section id="early">
+    <div class="early-inner">
+      <div class="early-badge"><span class="early-badge-dot"></span>Early access</div>
+      <h2 class="early-h">50% off for the first 200 users.</h2>
+      <p class="early-body">
+        We're building something we believe in — and we want the right people in early.
+        The first 200 actors get a portfolio at half the price. No catch.
+        Just get in before the spots are gone.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-h">Still have questions?</div>
+      <div class="contact-sub">Reach us directly. We're a small team and we actually pick up.</div>
+      <a class="contact-pill" href="https://wa.me/919454905329" target="_blank">
+        <div class="contact-pill-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        +91 94549 05329
+      </a>
+      <div class="contact-note">We'll follow up within 24 hours.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">arc</div>
+    <div class="footer-sub">focused portfolios for actors</div>
+    <!-- Subtle team credit — low contrast, not a headline -->
+    <div class="footer-team">designers · filmmakers · developers</div>
+  </footer>
+
+</div><!-- end landing -->
+
+<!-- ══ EMAILJS SUBMIT LOGIC ══ -->
+<script>
+function submitLead() {
+  var name  = document.getElementById('lead-name').value.trim();
+  var phone = document.getElementById('lead-phone').value.trim();
+  var email = document.getElementById('lead-email').value.trim();
+  var msg   = document.getElementById('lead-form-msg');
+  var btn   = document.getElementById('lead-submit-btn');
+
+  // Basic validation
+  if (!name || !phone || !email) {
+    msg.textContent = 'Please fill in all three fields.';
+    msg.style.color = 'rgba(255,255,255,0.7)';
+    return;
+  }
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    msg.textContent = 'That email doesn\'t look right.';
+    msg.style.color = 'rgba(255,255,255,0.7)';
+    return;
+  }
+
+  // Disable button while sending
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  msg.textContent = '';
+
+  // ── EmailJS send ──
+  // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs from emailjs.com
+  // In your EmailJS template, use variables: {{from_name}}, {{phone}}, {{from_email}}
+  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+    from_name:  name,
+    phone:      phone,
+    from_email: email,
+    to_email:   'kshitijatarc@gmail.com'
+  })
+  .then(function() {
+    // Hide form, show success message
+    document.getElementById('lead-form-wrap').style.display = 'none';
+    document.getElementById('lead-success').style.display   = 'block';
+  })
+  .catch(function(err) {
+    // Re-enable button and show error
+    btn.disabled = false;
+    btn.textContent = 'Send — we\'ll contact you →';
+    msg.textContent = 'Something went wrong. Try again or WhatsApp us directly.';
+    msg.style.color = 'rgba(255,255,255,0.7)';
+    console.error('EmailJS error:', err);
+  });
+}
+
+// Allow Enter key to submit from any field
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    var active = document.activeElement;
+    if (['lead-name','lead-phone','lead-email'].indexOf(active.id) > -1) {
+      submitLead();
+    }
+  }
+});
+</script>
+
+</body>
+</html>
